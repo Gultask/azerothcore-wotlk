@@ -17550,7 +17550,7 @@ INSERT INTO `pool_template` (`entry`, `max_limit`, `description`) VALUES
 (687, 20, 'Silverleaf in Barrens'),
 (688, 21, 'Earthroot in Barrens'),
 (689, 28, 'Peacebloom in Barrens'),
-(690, 25, 'Silverleafs in Barrens (2)'),
+(690, 25, 'Silverleaf in Barrens (2)'),
 (691, 30, 'Mageroyal in Barrens (2)'),
 (692, 16, 'Bruiseweed in Barrens'),
 (693, 22, 'Briarthorn in Barrens'),
@@ -21075,8 +21075,8 @@ INSERT INTO `gameobject` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, 
 DELETE FROM `gameobject` WHERE `id` IN (1618, 3724, 1617, 3725, 1620, 3727, 1619, 3726, 1621, 3729, 1622, 3730, 2045, 1623, 1628, 1624, 2041, 2042, 2046, 2043, 2044, 2866, 142140, 142141, 176642, 142142, 176636, 142143, 183046, 142144, 142145, 176637, 176583, 176638, 176584, 176639, 176586, 176640, 176587, 176641, 176588) AND `position_z`<1200 AND `map` IN (0, 1) AND `guid` NOT IN (SELECT `guid` FROM `pool_gameobject` WHERE `pool_entry` BETWEEN 489 AND 716);
 
 -- Remove non-sensical spawns
-DELETE FROM `gameobject` WHERE `guid` IN (82447, 82417);
-DELETE FROM `pool_gameobject` WHERE `guid` IN (82447, 82417);
+DELETE FROM `gameobject` WHERE `guid` IN (82447, 82417, 79523);
+DELETE FROM `pool_gameobject` WHERE `guid` IN (82447, 82417, 79523);
 
 -- Update unreachable nodes
 UPDATE `gameobject` SET `position_z`=-4.4 WHERE `guid`=78786;
