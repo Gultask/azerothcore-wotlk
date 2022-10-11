@@ -1,150 +1,257 @@
---
-UPDATE `gameobject` SET `ZoneId`=36 WHERE `guid` IN (3030,3031,3034,3038,3111,3112,3176,3362,3545,3564,3607,3608,3609,3610,3671,3676,3853,3926,3927,3931,4046,4078,4102,4104,4151,4156,4171,4182,4201,4204,4250,4256,4257,4260,4278,4354,4371,4444,4445,4450,4492,4497,4498,29997,32114,32185,32188,32190,32195,32197,32198,32199,32200,32201,32202,32209,32210,32217,32284,32643,32644,33135,33137,33140,33168,33174,33197,33201,33203,33305,33310,35372,35375,35388,35389,35394,35397,35404,63407,64094,65095,65310,86323,86336,86801,86808,86836,87249);
+-- Aterac Mountains pooling
+UPDATE `gameobject` SET `ZoneId`=36 WHERE `guid` IN (3030,3031,3034,3038,3111,3112,3176,3362,3545,3564,3607,3608,3609,3610,3671,3676,3853,3926,3927,3931,4046,4078,4102,4104,4151,4156,4171,4182,4201,4204,4250,4256,4257,4260,4278,4354,4371,4444,4445,4450,4492,4497,4498,29997,32114,32185,32188,32190,32195,32197,32198,32199,32200,32201,32202,32209,32210,32217,32284,32643,32644,33135,33137,33140,33168,33174,33197,33201,33203,33305,33310,35372,35375,35388,35389,35394,35397,35404,63407,64094,65095,65310,86323,86336,86801,86808,86836,87249,64067,8240,35407,8526,32204);
 
--- Bruiseweed
-3030
-3031
-3034
-3038
-3111
-3112
-3176
-3362
-3545
-3564
-3607
-3608
-3609
-3610
-3671
-3676
-3853
-32284
-33168
-35394
-87249
+DELETE FROM `pool_template` WHERE `entry` BETWEEN 506 AND 515;
+INSERT INTO `pool_template` (`entry`, `max_limit`, `description`) VALUES
+(506, 8, 'Bruiseweed in Alterac Mountains'),
+(507, 2, 'Kingsblood in Alterac Mountains'),
+(508, 12, 'Goldthorn in Alterac Mountains'),
+(509, 8, 'Khadgars Whisker in Alterac Mountains'),
+(510, 2, 'Grave Moss in Alterac Mountains'),
+(511, 5, 'Wild Steelbloom in Alterac Mountains'),
+(512, 9, 'Wintersbite in Alterac Mountains'),
+(513, 8, 'Liferoot in Alterac Mountains'),
+(514, 11, 'Fadeleaf in Alterac Mountains'),
+(515, 1, 'Stranglekelp in Alterac Mountains');
 
--- Wild Steelbloom
-3926
-3927
-3931
-4046
-4078
-4102
-4104
-4151
-4156
-4171
-4182
-4201
-4204
-4250
-4256
-4257
-4260
-
--- Kingsblood
-4278
-4354
-4371
-21220
-21279
-32188
-32202
-32209
-33174
-33197
-33305
-63407
-65095
-86323
-86336
-
--- Grave Moss
-4444
-4445
-4450
-4492
-4497
-4498
-32644
-
--- Liferoot
-7357
-7379
-7388
-7389
-7391
-7396
-7397
-7401
-7402
-7403
-7404
-7405
-7406
-7408
-7409
-7415
-7420
-7421
-7422
-7424
-7451
-7452
-7457
-7459
-7465
-7507
-7508
-7510
-7511
-7527
-7550
-7552
-32185
-32197
-33203
-35372
-65310
-86801
-86808
-
--- Fadeleaf
-7576
-7585
-7621
-7646
-7647
-7665
-7668
-7670
-7675
-7678
-7683
-7684
-7685
-7688
-7689
-7690
-7691
-7696
-7699
-7702
-7704
-7707
-7721
-7723
-7738
-7760
-7768
-7774
-7775
-7797
-7820
-7822
-7825
-32190
-32195
-33201
-86836
+DELETE FROM `pool_gameobject` WHERE `pool_entry` BETWEEN 506 AND 515;
+INSERT INTO `pool_gameobject` (`guid`, `pool_entry`, `chance`, `description`) VALUES 
+(3030, 506, 0, 'Bruiseweed'),
+(3031, 506, 0, 'Bruiseweed'),
+(3034, 506, 0, 'Bruiseweed'),
+(3038, 506, 0, 'Bruiseweed'),
+(3111, 506, 0, 'Bruiseweed'),
+(3112, 506, 0, 'Bruiseweed'),
+(3176, 506, 0, 'Bruiseweed'),
+(3362, 506, 0, 'Bruiseweed'),
+(3545, 506, 0, 'Bruiseweed'),
+(3564, 506, 0, 'Bruiseweed'),
+(3607, 506, 0, 'Bruiseweed'),
+(3608, 506, 0, 'Bruiseweed'),
+(3609, 506, 0, 'Bruiseweed'),
+(3610, 506, 0, 'Bruiseweed'),
+(3671, 506, 0, 'Bruiseweed'),
+(3676, 506, 0, 'Bruiseweed'),
+(3853, 506, 0, 'Bruiseweed'),
+(32284, 506, 0, 'Bruiseweed'),
+(33168, 506, 0, 'Bruiseweed'),
+(35394, 506, 0, 'Bruiseweed'),
+(87249, 506, 0, 'Bruiseweed'),
+(3926, 511, 0, 'Wild Steelbloom'),
+(3927, 511, 0, 'Wild Steelbloom'),
+(3931, 511, 0, 'Wild Steelbloom'),
+(4046, 511, 0, 'Wild Steelbloom'),
+(4078, 511, 0, 'Wild Steelbloom'),
+(4102, 511, 0, 'Wild Steelbloom'),
+(4104, 511, 0, 'Wild Steelbloom'),
+(4151, 511, 0, 'Wild Steelbloom'),
+(4156, 511, 0, 'Wild Steelbloom'),
+(4171, 511, 0, 'Wild Steelbloom'),
+(4182, 511, 0, 'Wild Steelbloom'),
+(4201, 511, 0, 'Wild Steelbloom'),
+(4204, 511, 0, 'Wild Steelbloom'),
+(4250, 511, 0, 'Wild Steelbloom'),
+(4256, 511, 0, 'Wild Steelbloom'),
+(4257, 511, 0, 'Wild Steelbloom'),
+(4260, 511, 0, 'Wild Steelbloom'),
+(4278, 507, 0, 'Kingsblood'),
+(4354, 507, 0, 'Kingsblood'),
+(4371, 507, 0, 'Kingsblood'),
+(21220, 507, 0, 'Kingsblood'),
+(21279, 507, 0, 'Kingsblood'),
+(32188, 507, 0, 'Kingsblood'),
+(32202, 507, 0, 'Kingsblood'),
+(32209, 507, 0, 'Kingsblood'),
+(33174, 507, 0, 'Kingsblood'),
+(33197, 507, 0, 'Kingsblood'),
+(33305, 507, 0, 'Kingsblood'),
+(63407, 507, 0, 'Kingsblood'),
+(65095, 507, 0, 'Kingsblood'),
+(86323, 507, 0, 'Kingsblood'),
+(86336, 507, 0, 'Kingsblood'),
+(4444, 510, 0, 'Grave Moss'),
+(4445, 510, 0, 'Grave Moss'),
+(4450, 510, 0, 'Grave Moss'),
+(4492, 510, 0, 'Grave Moss'),
+(4497, 510, 0, 'Grave Moss'),
+(4498, 510, 0, 'Grave Moss'),
+(32644, 510, 0, 'Grave Moss'),
+(7357, 513, 0, 'Liferoot'),
+(7379, 513, 0, 'Liferoot'),
+(7388, 513, 0, 'Liferoot'),
+(7389, 513, 0, 'Liferoot'),
+(7391, 513, 0, 'Liferoot'),
+(7396, 513, 0, 'Liferoot'),
+(7397, 513, 0, 'Liferoot'),
+(7401, 513, 0, 'Liferoot'),
+(7402, 513, 0, 'Liferoot'),
+(7403, 513, 0, 'Liferoot'),
+(7404, 513, 0, 'Liferoot'),
+(7405, 513, 0, 'Liferoot'),
+(7406, 513, 0, 'Liferoot'),
+(7408, 513, 0, 'Liferoot'),
+(7409, 513, 0, 'Liferoot'),
+(7415, 513, 0, 'Liferoot'),
+(7420, 513, 0, 'Liferoot'),
+(7421, 513, 0, 'Liferoot'),
+(7422, 513, 0, 'Liferoot'),
+(7424, 513, 0, 'Liferoot'),
+(7451, 513, 0, 'Liferoot'),
+(7452, 513, 0, 'Liferoot'),
+(7457, 513, 0, 'Liferoot'),
+(7459, 513, 0, 'Liferoot'),
+(7465, 513, 0, 'Liferoot'),
+(7507, 513, 0, 'Liferoot'),
+(7508, 513, 0, 'Liferoot'),
+(7510, 513, 0, 'Liferoot'),
+(7511, 513, 0, 'Liferoot'),
+(7527, 513, 0, 'Liferoot'),
+(7550, 513, 0, 'Liferoot'),
+(7552, 513, 0, 'Liferoot'),
+(32185, 513, 0, 'Liferoot'),
+(32197, 513, 0, 'Liferoot'),
+(33203, 513, 0, 'Liferoot'),
+(35372, 513, 0, 'Liferoot'),
+(65310, 513, 0, 'Liferoot'),
+(86801, 513, 0, 'Liferoot'),
+(86808, 513, 0, 'Liferoot'),
+(7576, 514, 0, 'Fadeleaf'),
+(7585, 514, 0, 'Fadeleaf'),
+(7621, 514, 0, 'Fadeleaf'),
+(7646, 514, 0, 'Fadeleaf'),
+(7647, 514, 0, 'Fadeleaf'),
+(7665, 514, 0, 'Fadeleaf'),
+(7668, 514, 0, 'Fadeleaf'),
+(7670, 514, 0, 'Fadeleaf'),
+(7675, 514, 0, 'Fadeleaf'),
+(7678, 514, 0, 'Fadeleaf'),
+(7683, 514, 0, 'Fadeleaf'),
+(7684, 514, 0, 'Fadeleaf'),
+(7685, 514, 0, 'Fadeleaf'),
+(7688, 514, 0, 'Fadeleaf'),
+(7689, 514, 0, 'Fadeleaf'),
+(7690, 514, 0, 'Fadeleaf'),
+(7691, 514, 0, 'Fadeleaf'),
+(7696, 514, 0, 'Fadeleaf'),
+(7699, 514, 0, 'Fadeleaf'),
+(7702, 514, 0, 'Fadeleaf'),
+(7704, 514, 0, 'Fadeleaf'),
+(7707, 514, 0, 'Fadeleaf'),
+(7721, 514, 0, 'Fadeleaf'),
+(7723, 514, 0, 'Fadeleaf'),
+(7738, 514, 0, 'Fadeleaf'),
+(7760, 514, 0, 'Fadeleaf'),
+(7768, 514, 0, 'Fadeleaf'),
+(7774, 514, 0, 'Fadeleaf'),
+(7775, 514, 0, 'Fadeleaf'),
+(7797, 514, 0, 'Fadeleaf'),
+(7820, 514, 0, 'Fadeleaf'),
+(7822, 514, 0, 'Fadeleaf'),
+(7825, 514, 0, 'Fadeleaf'),
+(32190, 514, 0, 'Fadeleaf'),
+(32195, 514, 0, 'Fadeleaf'),
+(33201, 514, 0, 'Fadeleaf'),
+(86836, 514, 0, 'Fadeleaf'),
+(7831, 509, 0, 'Khadgar\'s Whisker'),
+(7843, 509, 0, 'Khadgar\'s Whisker'),
+(7902, 509, 0, 'Khadgar\'s Whisker'),
+(7906, 509, 0, 'Khadgar\'s Whisker'),
+(7919, 509, 0, 'Khadgar\'s Whisker'),
+(7959, 509, 0, 'Khadgar\'s Whisker'),
+(7981, 509, 0, 'Khadgar\'s Whisker'),
+(7982, 509, 0, 'Khadgar\'s Whisker'),
+(7989, 509, 0, 'Khadgar\'s Whisker'),
+(8015, 509, 0, 'Khadgar\'s Whisker'),
+(8026, 509, 0, 'Khadgar\'s Whisker'),
+(8030, 509, 0, 'Khadgar\'s Whisker'),
+(8051, 509, 0, 'Khadgar\'s Whisker'),
+(8055, 509, 0, 'Khadgar\'s Whisker'),
+(8062, 509, 0, 'Khadgar\'s Whisker'),
+(8064, 509, 0, 'Khadgar\'s Whisker'),
+(8071, 509, 0, 'Khadgar\'s Whisker'),
+(8092, 509, 0, 'Khadgar\'s Whisker'),
+(8102, 509, 0, 'Khadgar\'s Whisker'),
+(8120, 509, 0, 'Khadgar\'s Whisker'),
+(8130, 509, 0, 'Khadgar\'s Whisker'),
+(8132, 509, 0, 'Khadgar\'s Whisker'),
+(8133, 509, 0, 'Khadgar\'s Whisker'),
+(8162, 509, 0, 'Khadgar\'s Whisker'),
+(8164, 509, 0, 'Khadgar\'s Whisker'),
+(8172, 509, 0, 'Khadgar\'s Whisker'),
+(8174, 509, 0, 'Khadgar\'s Whisker'),
+(29997, 509, 0, 'Khadgar\'s Whisker'),
+(32198, 509, 0, 'Khadgar\'s Whisker'),
+(32200, 509, 0, 'Khadgar\'s Whisker'),
+(32210, 509, 0, 'Khadgar\'s Whisker'),
+(35375, 509, 0, 'Khadgar\'s Whisker'),
+(8190, 512, 0, 'Wintersbite'),
+(8191, 512, 0, 'Wintersbite'),
+(8192, 512, 0, 'Wintersbite'),
+(8193, 512, 0, 'Wintersbite'),
+(8194, 512, 0, 'Wintersbite'),
+(8195, 512, 0, 'Wintersbite'),
+(8196, 512, 0, 'Wintersbite'),
+(8197, 512, 0, 'Wintersbite'),
+(8198, 512, 0, 'Wintersbite'),
+(8199, 512, 0, 'Wintersbite'),
+(8200, 512, 0, 'Wintersbite'),
+(8201, 512, 0, 'Wintersbite'),
+(8202, 512, 0, 'Wintersbite'),
+(8203, 512, 0, 'Wintersbite'),
+(8204, 512, 0, 'Wintersbite'),
+(8205, 512, 0, 'Wintersbite'),
+(8206, 512, 0, 'Wintersbite'),
+(8207, 512, 0, 'Wintersbite'),
+(8208, 512, 0, 'Wintersbite'),
+(8209, 512, 0, 'Wintersbite'),
+(8210, 512, 0, 'Wintersbite'),
+(8211, 512, 0, 'Wintersbite'),
+(8212, 512, 0, 'Wintersbite'),
+(8213, 512, 0, 'Wintersbite'),
+(8214, 512, 0, 'Wintersbite'),
+(8215, 512, 0, 'Wintersbite'),
+(32217, 512, 0, 'Wintersbite'),
+(33135, 512, 0, 'Wintersbite'),
+(33137, 512, 0, 'Wintersbite'),
+(33310, 512, 0, 'Wintersbite'),
+(35389, 512, 0, 'Wintersbite'),
+(35397, 512, 0, 'Wintersbite'),
+(35404, 512, 0, 'Wintersbite'),
+(8190, 508, 0, 'Goldthorn'),
+(8191, 508, 0, 'Goldthorn'),
+(8192, 508, 0, 'Goldthorn'),
+(8193, 508, 0, 'Goldthorn'),
+(8194, 508, 0, 'Goldthorn'),
+(8195, 508, 0, 'Goldthorn'),
+(8196, 508, 0, 'Goldthorn'),
+(8197, 508, 0, 'Goldthorn'),
+(8198, 508, 0, 'Goldthorn'),
+(8199, 508, 0, 'Goldthorn'),
+(8200, 508, 0, 'Goldthorn'),
+(8201, 508, 0, 'Goldthorn'),
+(8202, 508, 0, 'Goldthorn'),
+(8203, 508, 0, 'Goldthorn'),
+(8204, 508, 0, 'Goldthorn'),
+(8205, 508, 0, 'Goldthorn'),
+(8206, 508, 0, 'Goldthorn'),
+(8207, 508, 0, 'Goldthorn'),
+(8208, 508, 0, 'Goldthorn'),
+(8209, 508, 0, 'Goldthorn'),
+(8210, 508, 0, 'Goldthorn'),
+(8211, 508, 0, 'Goldthorn'),
+(8212, 508, 0, 'Goldthorn'),
+(8213, 508, 0, 'Goldthorn'),
+(8214, 508, 0, 'Goldthorn'),
+(8215, 508, 0, 'Goldthorn'),
+(32217, 508, 0, 'Goldthorn'),
+(33135, 508, 0, 'Goldthorn'),
+(33137, 508, 0, 'Goldthorn'),
+(33310, 508, 0, 'Goldthorn'),
+(35389, 508, 0, 'Goldthorn'),
+(35397, 508, 0, 'Goldthorn'),
+(35404, 508, 0, 'Goldthorn'),
+(64067, 515, 0, 'Stranglekelp'),
+(8240, 515, 0, 'Stranglekelp'),
+(35407, 515, 0, 'Stranglekelp'),
+(8526, 515, 0, 'Stranglekelp'),
+(32204, 515, 0, 'Stranglekelp');
