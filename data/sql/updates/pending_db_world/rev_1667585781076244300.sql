@@ -4,6 +4,7 @@ DELETE FROM `gameobject` WHERE `guid` IN (75314, 75315, 75316, 75362, 75363, 753
 DELETE FROM `pool_gameobject` WHERE `description` LIKE '%Hillsbrad Foothills%' AND `pool_entry` BETWEEN 4750 AND 4847;
 DELETE FROM `pool_pool` WHERE `mother_pool` IN (2014, 2015) AND `pool_id` BETWEEN 4750 AND 4847;
 DELETE FROM `pool_template` WHERE `entry` IN (2014, 2015) AND `description` LIKE '%Hillsbrad Foothills%';
+DELETE FROM `pool_template` WHERE `entry` BETWEEN (4750 AND 4847) AND `description` LIKE '%Hillsbrad Foothills%';
 
 SET @POOL = 
 SET @POOLMOTHER = 
