@@ -1,263 +1,260 @@
---
-75251 (Entry: 1731) - Copper Vein X:-1458.579956 Y:-1085.959961 Z:7.964060 MapId:0 
-75252 (Entry: 1732) - Tin Vein X:-1458.579956 Y:-1085.959961 Z:7.964060 MapId:0 
-75253 (Entry: 1733) - Silver Vein X:-1458.579956 Y:-1085.959961 Z:7.964060 MapId:0 
-Found near gameobjects (distance 10.000000): 3 
-75404 (Entry: 1731) - Copper Vein X:-1236.349976 Y:-986.903015 Z:16.541800 MapId:0 
-75405 (Entry: 1732) - Tin Vein X:-1236.349976 Y:-986.903015 Z:16.541800 MapId:0 
-75406 (Entry: 1733) - Silver Vein X:-1236.349976 Y:-986.903015 Z:16.541800 MapId:0 
-Found near gameobjects (distance 10.000000): 3 
-75383 (Entry: 1731) - Copper Vein X:-1195.000000 Y:-947.000000 Z:31.334000 MapId:0 
-75384 (Entry: 1732) - Tin Vein X:-1195.000000 Y:-947.000000 Z:31.334000 MapId:0 
-75385 (Entry: 1733) - Silver Vein X:-1195.000000 Y:-947.000000 Z:31.334000 MapId:0 
-Found near gameobjects (distance 10.000000): 3 
-75311 (Entry: 1731) - Copper Vein X:-1093.000000 Y:-1064.000000 Z:49.459000 MapId:0 
-75312 (Entry: 1732) - Tin Vein X:-1093.000000 Y:-1064.000000 Z:49.459000 MapId:0 
-75313 (Entry: 1733) - Silver Vein X:-1093.000000 Y:-1064.000000 Z:49.459000 MapId:0 
-Found near gameobjects (distance 10.000000): 3 
-75224 (Entry: 1731) - Copper Vein X:-1100.650024 Y:-830.580017 Z:17.953199 MapId:0 
-75225 (Entry: 1732) - Tin Vein X:-1100.650024 Y:-830.580017 Z:17.953199 MapId:0 
-75226 (Entry: 1733) - Silver Vein X:-1100.650024 Y:-830.580017 Z:17.953199 MapId:0 
-Found near gameobjects (distance 10.000000): 3 
-75305 (Entry: 1731) - Copper Vein X:-778.223999 Y:-984.914978 Z:36.673302 MapId:0 
-75306 (Entry: 1732) - Tin Vein X:-778.223999 Y:-984.914978 Z:36.673302 MapId:0 
-75307 (Entry: 1733) - Silver Vein X:-778.223999 Y:-984.914978 Z:36.673302 MapId:0 
-Found near gameobjects (distance 10.000000): 3 
-75272 (Entry: 1731) - Copper Vein X:-703.013000 Y:-980.705017 Z:46.612202 MapId:0 
-75273 (Entry: 1732) - Tin Vein X:-703.013000 Y:-980.705017 Z:46.612202 MapId:0 
-75274 (Entry: 1733) - Silver Vein X:-703.013000 Y:-980.705017 Z:46.612202 MapId:0 
-Found near gameobjects (distance 10.000000): 4 
-75335 (Entry: 1731) - Copper Vein X:-619.142029 Y:-1014.929993 Z:61.855099 MapId:0 
-75336 (Entry: 1732) - Tin Vein X:-619.142029 Y:-1014.929993 Z:61.855099 MapId:0 
-75337 (Entry: 1733) - Silver Vein X:-619.142029 Y:-1014.929993 Z:61.855099 MapId:0 
-Found near gameobjects (distance 10.000000): 3 
-75374 (Entry: 1731) - Copper Vein X:-770.000000 Y:-1192.000000 Z:69.220001 MapId:0 
-75375 (Entry: 1732) - Tin Vein X:-770.000000 Y:-1192.000000 Z:69.220001 MapId:0 
-75376 (Entry: 1733) - Silver Vein X:-770.000000 Y:-1192.000000 Z:69.220001 MapId:0 
-Found near gameobjects (distance 10.000000): 3 
-75293 (Entry: 1731) - Copper Vein X:-817.619995 Y:-1210.969971 Z:57.024300 MapId:0 
-75294 (Entry: 1732) - Tin Vein X:-817.619995 Y:-1210.969971 Z:57.024300 MapId:0 
-75295 (Entry: 1733) - Silver Vein X:-817.619995 Y:-1210.969971 Z:57.024300 MapId:0 
-Found near gameobjects (distance 10.000000): 3 
-75398 (Entry: 1731) - Copper Vein X:-1012.890015 Y:-1185.040039 Z:65.529198 MapId:0 
-75399 (Entry: 1732) - Tin Vein X:-1012.890015 Y:-1185.040039 Z:65.529198 MapId:0 
-75400 (Entry: 1733) - Silver Vein X:-1012.890015 Y:-1185.040039 Z:65.529198 MapId:0 
-Found near gameobjects (distance 10.000000): 3 
-75296 (Entry: 1731) - Copper Vein X:-999.125977 Y:-1117.260010 Z:53.234699 MapId:0 
-75297 (Entry: 1732) - Tin Vein X:-999.125977 Y:-1117.260010 Z:53.234699 MapId:0 
-75298 (Entry: 1733) - Silver Vein X:-999.125977 Y:-1117.260010 Z:53.234699 MapId:0 
-Found near gameobjects (distance 10.000000): 3  
-75401 (Entry: 1731) - Copper Vein X:-1171.689941 Y:-1305.329956 Z:86.214401 MapId:0 
-75402 (Entry: 1732) - Tin Vein X:-1171.689941 Y:-1305.329956 Z:86.214401 MapId:0 
-75403 (Entry: 1733) - Silver Vein X:-1171.689941 Y:-1305.329956 Z:86.214401 MapId:0 
-75471 (Entry: 1735) - Iron Deposit X:-1171.689941 Y:-1305.329956 Z:86.214401 MapId:0 
-75472 (Entry: 2040) - Mithril Deposit X:-1171.689941 Y:-1305.329956 Z:86.214401 MapId:0 
-75473 (Entry: 1734) - Gold Vein X:-1171.689941 Y:-1305.329956 Z:86.214401 MapId:0 
-75474 (Entry: 2047) - Truesilver Deposit X:-1171.689941 Y:-1305.329956 Z:86.214401 MapId:0 
-Found near gameobjects (distance 10.000000): 7 
-75344 (Entry: 1731) - Copper Vein X:-922.306030 Y:-1453.780029 Z:59.155899 MapId:0 
-75345 (Entry: 1732) - Tin Vein X:-922.306030 Y:-1453.780029 Z:59.155899 MapId:0 
-75346 (Entry: 1733) - Silver Vein X:-922.306030 Y:-1453.780029 Z:59.155899 MapId:0 
-Found near gameobjects (distance 10.000000): 3 
-75200 (Entry: 1731) - Copper Vein X:-644.456970 Y:-1361.170044 Z:68.574203 MapId:0 
-75201 (Entry: 1732) - Tin Vein X:-644.456970 Y:-1361.170044 Z:68.574203 MapId:0 
-75202 (Entry: 1733) - Silver Vein X:-644.456970 Y:-1361.170044 Z:68.574203 MapId:0 
-Found near gameobjects (distance 10.000000): 3 
-75377 (Entry: 1731) - Copper Vein X:-582.000000 Y:-1643.000000 Z:74.985001 MapId:0 
-75378 (Entry: 1732) - Tin Vein X:-582.000000 Y:-1643.000000 Z:74.985001 MapId:0 
-75379 (Entry: 1733) - Silver Vein X:-582.000000 Y:-1643.000000 Z:74.985001 MapId:0 
-Found near gameobjects (distance 10.000000): 3 
-75386 (Entry: 1731) - Copper Vein X:-498.583008 Y:-1658.010010 Z:84.055099 MapId:0 
-75387 (Entry: 1732) - Tin Vein X:-498.583008 Y:-1658.010010 Z:84.055099 MapId:0 
-75388 (Entry: 1733) - Silver Vein X:-498.583008 Y:-1658.010010 Z:84.055099 MapId:0 
-Found near gameobjects (distance 10.000000): 3 
-75380 (Entry: 1731) - Copper Vein X:-492.000000 Y:-1665.000000 Z:81.767998 MapId:0 
-75381 (Entry: 1732) - Tin Vein X:-492.000000 Y:-1665.000000 Z:81.767998 MapId:0 
-75382 (Entry: 1733) - Silver Vein X:-492.000000 Y:-1665.000000 Z:81.767998 MapId:0 
-Found near gameobjects (distance 10.000000): 3 
-75389 (Entry: 1731) - Copper Vein X:-392.000000 Y:-1775.000000 Z:113.070999 MapId:0 
-75390 (Entry: 1732) - Tin Vein X:-392.000000 Y:-1775.000000 Z:113.070999 MapId:0 
-75391 (Entry: 1733) - Silver Vein X:-392.000000 Y:-1775.000000 Z:113.070999 MapId:0 
-Found near gameobjects (distance 10.000000): 4 
-75487 (Entry: 1735) - Iron Deposit X:-260.000000 Y:-1753.000000 Z:125.660004 MapId:0 
-75488 (Entry: 2040) - Mithril Deposit X:-260.000000 Y:-1753.000000 Z:125.660004 MapId:0 
-75489 (Entry: 1734) - Gold Vein X:-260.000000 Y:-1753.000000 Z:125.660004 MapId:0 
-75490 (Entry: 2047) - Truesilver Deposit X:-260.000000 Y:-1753.000000 Z:125.660004 MapId:0 
-Found near gameobjects (distance 10.000000): 4 
-75218 (Entry: 1731) - Copper Vein X:-445.190002 Y:-1529.400024 Z:71.005302 MapId:0 
-75219 (Entry: 1732) - Tin Vein X:-445.190002 Y:-1529.400024 Z:71.005302 MapId:0 
-75220 (Entry: 1733) - Silver Vein X:-445.190002 Y:-1529.400024 Z:71.005302 MapId:0 
-Found near gameobjects (distance 10.000000): 3 
-75269 (Entry: 1731) - Copper Vein X:-196.854004 Y:-1457.589966 Z:113.474998 MapId:0 
-75270 (Entry: 1732) - Tin Vein X:-196.854004 Y:-1457.589966 Z:113.474998 MapId:0 
-75271 (Entry: 1733) - Silver Vein X:-196.854004 Y:-1457.589966 Z:113.474998 MapId:0 
-Found near gameobjects (distance 10.000000): 3 
-75281 (Entry: 1731) - Copper Vein X:-90.045097 Y:-1361.989990 Z:123.778000 MapId:0 
-75282 (Entry: 1732) - Tin Vein X:-90.045097 Y:-1361.989990 Z:123.778000 MapId:0 
-75283 (Entry: 1733) - Silver Vein X:-90.045097 Y:-1361.989990 Z:123.778000 MapId:0 
-Found near gameobjects (distance 10.000000): 3 
-75329 (Entry: 1731) - Copper Vein X:52.390800 Y:-1232.239990 Z:71.268898 MapId:0 
-75330 (Entry: 1732) - Tin Vein X:52.390800 Y:-1232.239990 Z:71.268898 MapId:0 
-75331 (Entry: 1733) - Silver Vein X:52.390800 Y:-1232.239990 Z:71.268898 MapId:0 
-Found near gameobjects (distance 10.000000): 3 
-75326 (Entry: 1731) - Copper Vein X:188.658005 Y:-1064.000000 Z:73.208000 MapId:0 
-75327 (Entry: 1732) - Tin Vein X:188.658005 Y:-1064.000000 Z:73.208000 MapId:0 
-75328 (Entry: 1733) - Silver Vein X:188.658005 Y:-1064.000000 Z:73.208000 MapId:0 
-Found near gameobjects (distance 10.000000): 3 
-75356 (Entry: 1731) - Copper Vein X:85.922997 Y:-1065.000000 Z:58.681999 MapId:0 
-75357 (Entry: 1732) - Tin Vein X:85.922997 Y:-1065.000000 Z:58.681999 MapId:0 
-75358 (Entry: 1733) - Silver Vein X:85.922997 Y:-1065.000000 Z:58.681999 MapId:0 
-Found near gameobjects (distance 10.000000): 3 
-75368 (Entry: 1731) - Copper Vein X:73.270401 Y:-1002.169983 Z:59.498100 MapId:0 
-75369 (Entry: 1732) - Tin Vein X:73.270401 Y:-1002.169983 Z:59.498100 MapId:0 
-75370 (Entry: 1733) - Silver Vein X:73.270401 Y:-1002.169983 Z:59.498100 MapId:0 
-Found near gameobjects (distance 10.000000): 3 
-75290 (Entry: 1731) - Copper Vein X:143.440994 Y:-925.820984 Z:79.443298 MapId:0 
-75291 (Entry: 1732) - Tin Vein X:143.440994 Y:-925.820984 Z:79.443298 MapId:0 
-75292 (Entry: 1733) - Silver Vein X:143.440994 Y:-925.820984 Z:79.443298 MapId:0 
-Found near gameobjects (distance 10.000000): 3 
-75278 (Entry: 1731) - Copper Vein X:218.195999 Y:-755.703003 Z:109.082001 MapId:0 
-75279 (Entry: 1732) - Tin Vein X:218.195999 Y:-755.703003 Z:109.082001 MapId:0 
-75280 (Entry: 1733) - Silver Vein X:218.195999 Y:-755.703003 Z:109.082001 MapId:0 
-Found near gameobjects (distance 10.000000): 3 
-75284 (Entry: 1731) - Copper Vein X:115.794998 Y:-639.137024 Z:97.062103 MapId:0 
-75285 (Entry: 1732) - Tin Vein X:115.794998 Y:-639.137024 Z:97.062103 MapId:0 
-75286 (Entry: 1733) - Silver Vein X:115.794998 Y:-639.137024 Z:97.062103 MapId:0 
-Found near gameobjects (distance 10.000000): 3 
-75302 (Entry: 1731) - Copper Vein X:47.342602 Y:-642.851990 Z:94.491798 MapId:0 
-75303 (Entry: 1732) - Tin Vein X:47.342602 Y:-642.851990 Z:94.491798 MapId:0 
-75304 (Entry: 1733) - Silver Vein X:47.342602 Y:-642.851990 Z:94.491798 MapId:0 
-Found near gameobjects (distance 10.000000): 3 
-75347 (Entry: 1731) - Copper Vein X:-22.000000 Y:-679.000000 Z:76.608002 MapId:0 
-75348 (Entry: 1732) - Tin Vein X:-22.000000 Y:-679.000000 Z:76.608002 MapId:0 
-75349 (Entry: 1733) - Silver Vein X:-22.000000 Y:-679.000000 Z:76.608002 MapId:0 
-Found near gameobjects (distance 10.000000): 3 
-75332 (Entry: 1731) - Copper Vein X:-106.000000 Y:-690.000000 Z:73.804001 MapId:0 
-75333 (Entry: 1732) - Tin Vein X:-106.000000 Y:-690.000000 Z:73.804001 MapId:0 
-75334 (Entry: 1733) - Silver Vein X:-106.000000 Y:-690.000000 Z:73.804001 MapId:0 
-Found near gameobjects (distance 10.000000): 3 
-75353 (Entry: 1731) - Copper Vein X:-197.000000 Y:-655.000000 Z:66.449997 MapId:0 
-75354 (Entry: 1732) - Tin Vein X:-197.000000 Y:-655.000000 Z:66.449997 MapId:0 
-75355 (Entry: 1733) - Silver Vein X:-197.000000 Y:-655.000000 Z:66.449997 MapId:0 
-Found near gameobjects (distance 10.000000): 3 
-75392 (Entry: 1731) - Copper Vein X:-164.337997 Y:-497.122009 Z:80.326401 MapId:0 
-75393 (Entry: 1732) - Tin Vein X:-164.337997 Y:-497.122009 Z:80.326401 MapId:0 
-75394 (Entry: 1733) - Silver Vein X:-164.337997 Y:-497.122009 Z:80.326401 MapId:0 
-Found near gameobjects (distance 10.000000): 3 
-75323 (Entry: 1731) - Copper Vein X:-322.000000 Y:-367.000000 Z:67.164001 MapId:0 
-75324 (Entry: 1732) - Tin Vein X:-322.000000 Y:-367.000000 Z:67.164001 MapId:0 
-75325 (Entry: 1733) - Silver Vein X:-322.000000 Y:-367.000000 Z:67.164001 MapId:0 
-Found near gameobjects (distance 10.000000): 3 
-75350 (Entry: 1731) - Copper Vein X:-269.000000 Y:-216.000000 Z:84.474998 MapId:0 
-75351 (Entry: 1732) - Tin Vein X:-269.000000 Y:-216.000000 Z:84.474998 MapId:0 
-75352 (Entry: 1733) - Silver Vein X:-269.000000 Y:-216.000000 Z:84.474998 MapId:0 
-Found near gameobjects (distance 10.000000): 3 
-75395 (Entry: 1731) - Copper Vein X:-152.000000 Y:-134.000000 Z:116.106003 MapId:0 
-75396 (Entry: 1732) - Tin Vein X:-152.000000 Y:-134.000000 Z:116.106003 MapId:0 
-75397 (Entry: 1733) - Silver Vein X:-152.000000 Y:-134.000000 Z:116.106003 MapId:0 
-Found near gameobjects (distance 10.000000): 3 
-75266 (Entry: 1731) - Copper Vein X:-383.364990 Y:-182.705994 Z:61.785702 MapId:0 
-75267 (Entry: 1732) - Tin Vein X:-383.364990 Y:-182.705994 Z:61.785702 MapId:0 
-75268 (Entry: 1733) - Silver Vein X:-383.364990 Y:-182.705994 Z:61.785702 MapId:0 
-Found near gameobjects (distance 10.000000): 3 
-75230 (Entry: 1731) - Copper Vein X:-278.270996 Y:228.776993 Z:102.130997 MapId:0 
-75231 (Entry: 1732) - Tin Vein X:-278.270996 Y:228.776993 Z:102.130997 MapId:0 
-75232 (Entry: 1733) - Silver Vein X:-278.270996 Y:228.776993 Z:102.130997 MapId:0 
-Found near gameobjects (distance 10.000000): 3 
-75233 (Entry: 1731) - Copper Vein X:-386.992004 Y:260.187012 Z:94.646202 MapId:0 
-75234 (Entry: 1732) - Tin Vein X:-386.992004 Y:260.187012 Z:94.646202 MapId:0 
-75235 (Entry: 1733) - Silver Vein X:-386.992004 Y:260.187012 Z:94.646202 MapId:0 
-Found near gameobjects (distance 10.000000): 3 
-75248 (Entry: 1731) - Copper Vein X:-665.000000 Y:489.126007 Z:88.027000 MapId:0 
-75249 (Entry: 1732) - Tin Vein X:-665.000000 Y:489.126007 Z:88.027000 MapId:0 
-75250 (Entry: 1733) - Silver Vein X:-665.000000 Y:489.126007 Z:88.027000 MapId:0 
-Found near gameobjects (distance 10.000000): 3 
-75227 (Entry: 1731) - Copper Vein X:-745.166016 Y:577.435974 Z:103.427002 MapId:0 
-75228 (Entry: 1732) - Tin Vein X:-745.166016 Y:577.435974 Z:103.427002 MapId:0 
-75229 (Entry: 1733) - Silver Vein X:-745.166016 Y:577.435974 Z:103.427002 MapId:0 
-Found near gameobjects (distance 10.000000): 3 
-75254 (Entry: 1731) - Copper Vein X:-713.669006 Y:489.347992 Z:82.666100 MapId:0 
-75255 (Entry: 1732) - Tin Vein X:-713.669006 Y:489.347992 Z:82.666100 MapId:0 
-75256 (Entry: 1733) - Silver Vein X:-713.669006 Y:489.347992 Z:82.666100 MapId:0 
-Found near gameobjects (distance 10.000000): 3 
-75209 (Entry: 1731) - Copper Vein X:-801.255981 Y:519.085999 Z:101.711998 MapId:0 
-75210 (Entry: 1732) - Tin Vein X:-801.255981 Y:519.085999 Z:101.711998 MapId:0 
-75211 (Entry: 1733) - Silver Vein X:-801.255981 Y:519.085999 Z:101.711998 MapId:0 
-Found near gameobjects (distance 10.000000): 3 
-75203 (Entry: 1731) - Copper Vein X:-893.763000 Y:309.781006 Z:39.359200 MapId:0 
-75204 (Entry: 1732) - Tin Vein X:-893.763000 Y:309.781006 Z:39.359200 MapId:0 
-75205 (Entry: 1733) - Silver Vein X:-893.763000 Y:309.781006 Z:39.359200 MapId:0 
-Found near gameobjects (distance 10.000000): 3 
-75260 (Entry: 1731) - Copper Vein X:-808.000000 Y:23.719999 Z:35.220001 MapId:0 
-75261 (Entry: 1732) - Tin Vein X:-808.000000 Y:23.719999 Z:35.220001 MapId:0 
-75262 (Entry: 1733) - Silver Vein X:-808.000000 Y:23.719999 Z:35.220001 MapId:0 
-Found near gameobjects (distance 10.000000): 3 
-75221 (Entry: 1731) - Copper Vein X:-809.145020 Y:21.444700 Z:36.634998 MapId:0 
-75222 (Entry: 1732) - Tin Vein X:-809.145020 Y:21.444700 Z:36.634998 MapId:0 
-75223 (Entry: 1733) - Silver Vein X:-809.145020 Y:21.444700 Z:36.634998 MapId:0 
-Found near gameobjects (distance 10.000000): 3 
-75341 (Entry: 1731) - Copper Vein X:-845.000000 Y:86.352997 Z:3.217000 MapId:0 
-75342 (Entry: 1732) - Tin Vein X:-845.000000 Y:86.352997 Z:3.217000 MapId:0 
-75343 (Entry: 1733) - Silver Vein X:-845.000000 Y:86.352997 Z:3.217000 MapId:0 
-Found near gameobjects (distance 10.000000): 3 
-75314 (Entry: 1731) - Copper Vein X:-688.963989 Y:168.779999 Z:18.368000 MapId:0 
-75315 (Entry: 1732) - Tin Vein X:-688.963989 Y:168.779999 Z:18.368000 MapId:0 
-75316 (Entry: 1733) - Silver Vein X:-688.963989 Y:168.779999 Z:18.368000 MapId:0 
-Found near gameobjects (distance 50.000000): 3 
-Watcher says: DELETE THESE
-Watcher says: OR MOVE
-75263 (Entry: 1731) - Copper Vein X:-740.000000 Y:-237.000000 Z:37.234001 MapId:0 
-75264 (Entry: 1732) - Tin Vein X:-740.000000 Y:-237.000000 Z:37.234001 MapId:0 
-75265 (Entry: 1733) - Silver Vein X:-740.000000 Y:-237.000000 Z:37.234001 MapId:0 
-Found near gameobjects (distance 10.000000): 3 
-75236 (Entry: 1731) - Copper Vein X:-743.788025 Y:-245.082993 Z:40.216900 MapId:0 
-75237 (Entry: 1732) - Tin Vein X:-743.788025 Y:-245.082993 Z:40.216900 MapId:0 
-75238 (Entry: 1733) - Silver Vein X:-743.788025 Y:-245.082993 Z:40.216900 MapId:0 
-Found near gameobjects (distance 10.000000): 3 
-75365 (Entry: 1731) - Copper Vein X:-961.000000 Y:-166.000000 Z:51.674000 MapId:0 
-75366 (Entry: 1732) - Tin Vein X:-961.000000 Y:-166.000000 Z:51.674000 MapId:0 
-75367 (Entry: 1733) - Silver Vein X:-961.000000 Y:-166.000000 Z:51.674000 MapId:0 
-Found near gameobjects (distance 10.000000): 3 
-75299 (Entry: 1731) - Copper Vein X:-1000.520020 Y:30.584299 Z:43.394199 MapId:0 
-75300 (Entry: 1732) - Tin Vein X:-1000.520020 Y:30.584299 Z:43.394199 MapId:0 
-75301 (Entry: 1733) - Silver Vein X:-1000.520020 Y:30.584299 Z:43.394199 MapId:0 
-Found near gameobjects (distance 10.000000): 3 
-75245 (Entry: 1731) - Copper Vein X:-497.000000 Y:-824.000000 Z:49.307999 MapId:0 
-75246 (Entry: 1732) - Tin Vein X:-497.000000 Y:-824.000000 Z:49.307999 MapId:0 
-75247 (Entry: 1733) - Silver Vein X:-497.000000 Y:-824.000000 Z:49.307999 MapId:0 
-Found near gameobjects (distance 10.000000): 3 
-75215 (Entry: 1731) - Copper Vein X:-502.591003 Y:-828.237000 Z:53.355000 MapId:0 
-75216 (Entry: 1732) - Tin Vein X:-502.591003 Y:-828.237000 Z:53.355000 MapId:0 
-75217 (Entry: 1733) - Silver Vein X:-502.591003 Y:-828.237000 Z:53.355000 MapId:0 
-Found near gameobjects (distance 10.000000): 3 
-75206 (Entry: 1731) - Copper Vein X:-315.450989 Y:-842.828003 Z:61.727200 MapId:0 
-75207 (Entry: 1732) - Tin Vein X:-315.450989 Y:-842.828003 Z:61.727200 MapId:0 
-75208 (Entry: 1733) - Silver Vein X:-315.450989 Y:-842.828003 Z:61.727200 MapId:0 
-Found near gameobjects (distance 10.000000): 3 
-75362 (Entry: 1731) - Copper Vein X:-150.000000 Y:-997.000000 Z:60.231998 MapId:0 
-75363 (Entry: 1732) - Tin Vein X:-150.000000 Y:-997.000000 Z:60.231998 MapId:0 
-75364 (Entry: 1733) - Silver Vein X:-150.000000 Y:-997.000000 Z:60.231998 MapId:0 
-75320 (Entry: 1731) - Copper Vein X:-150.000000 Y:-996.000000 Z:60.480999 MapId:0 
-75321 (Entry: 1732) - Tin Vein X:-150.000000 Y:-996.000000 Z:60.480999 MapId:0 
-75322 (Entry: 1733) - Silver Vein X:-150.000000 Y:-996.000000 Z:60.480999 MapId:0 
-Found near gameobjects (distance 10.000000): 6 
-75308 (Entry: 1731) - Copper Vein X:-298.248993 Y:-1197.989990 Z:67.991096 MapId:0 
-75309 (Entry: 1732) - Tin Vein X:-298.248993 Y:-1197.989990 Z:67.991096 MapId:0 
-75310 (Entry: 1733) - Silver Vein X:-298.248993 Y:-1197.989990 Z:67.991096 MapId:0 
-Found near gameobjects (distance 10.000000): 3 
-75287 (Entry: 1731) - Copper Vein X:-304.803009 Y:-1240.069946 Z:72.514603 MapId:0 
-75288 (Entry: 1732) - Tin Vein X:-304.803009 Y:-1240.069946 Z:72.514603 MapId:0 
-75289 (Entry: 1733) - Silver Vein X:-304.803009 Y:-1240.069946 Z:72.514603 MapId:0 
-Found near gameobjects (distance 10.000000): 3 
-75275 (Entry: 1731) - Copper Vein X:-416.468994 Y:-1170.290039 Z:59.894001 MapId:0 
-75276 (Entry: 1732) - Tin Vein X:-416.468994 Y:-1170.290039 Z:59.894001 MapId:0 
-75277 (Entry: 1733) - Silver Vein X:-416.468994 Y:-1170.290039 Z:59.894001 MapId:0 
-Found near gameobjects (distance 10.000000): 3 
-75338 (Entry: 1731) - Copper Vein X:-531.000000 Y:-1178.000000 Z:60.577000 MapId:0 
-75339 (Entry: 1732) - Tin Vein X:-531.000000 Y:-1178.000000 Z:60.577000 MapId:0 
-75340 (Entry: 1733) - Silver Vein X:-531.000000 Y:-1178.000000 Z:60.577000 MapId:0 
-Found near gameobjects (distance 10.000000): 3 
-75371 (Entry: 1731) - Copper Vein X:-1289.160034 Y:635.333984 Z:54.108799 MapId:0 
-75372 (Entry: 1732) - Tin Vein X:-1289.160034 Y:635.333984 Z:54.108799 MapId:0 
-75373 (Entry: 1733) - Silver Vein X:-1289.160034 Y:635.333984 Z:54.108799 MapId:0 
-Found near gameobjects (distance 10.000000): 3 
+-- Delete an unreachable Copper / Tin / Silver pool at X:-688.963989 Y:168.779999 Z:18.368000 AND a duplicate group
+DELETE FROM `gameobject` WHERE `guid` IN (75314, 75315, 75316, 75362, 75363, 75364) AND `id` IN (1731, 1732, 1733);
+
+SET @POOL = 
+SET @POOLMOTHER = 
+
+DELETE FROM `pool_gameobject` WHERE `description` LIKE '%Hillsbrad Foothills%' AND `pool_entry` BETWEEN @POOL+0 AND @POOL+17;
+INSERT INTO `pool_gameobject` (`guid`, `pool_entry`, `chance`, `description`) VALUES
+(75251, @POOL+1 , 45, 'Copper Vein - Hillsbrad Foothills'),
+(75252, @POOL+1 , 45, 'Tin Vein - Hillsbrad Foothills'),
+(75253, @POOL+1 , 10, 'Silver Vein - Hillsbrad Foothills'),
+
+(75404, @POOL+2 , 45, 'Copper Vein - Hillsbrad Foothills'),
+(75405, @POOL+2 , 45, 'Tin Vein - Hillsbrad Foothills'),
+(75406, @POOL+2 , 10, 'Silver Vein - Hillsbrad Foothills'),
+
+(75383, @POOL+3 , 45, 'Copper Vein - Hillsbrad Foothills'),
+(75384, @POOL+3 , 45, 'Tin Vein - Hillsbrad Foothills'),
+(75385, @POOL+3 , 10, 'Silver Vein - Hillsbrad Foothills'),
+
+(75311, @POOL+4 , 45, 'Copper Vein - Hillsbrad Foothills'),
+(75312, @POOL+4 , 45, 'Tin Vein - Hillsbrad Foothills'),
+(75313, @POOL+4 , 10, 'Silver Vein - Hillsbrad Foothills'),
+
+(75224, @POOL+5 , 45, 'Copper Vein - Hillsbrad Foothills'),
+(75225, @POOL+5 , 45, 'Tin Vein - Hillsbrad Foothills'),
+(75226, @POOL+5 , 10, 'Silver Vein - Hillsbrad Foothills'),
+
+(75305, @POOL+6 , 45, 'Copper Vein - Hillsbrad Foothills'),
+(75306, @POOL+6 , 45, 'Tin Vein - Hillsbrad Foothills'),
+(75307, @POOL+6 , 10, 'Silver Vein - Hillsbrad Foothills'),
+
+(75272, @POOL+7 , 45, 'Copper Vein - Hillsbrad Foothills'),
+(75273, @POOL+7 , 45, 'Tin Vein - Hillsbrad Foothills'),
+(75274, @POOL+7 , 10, 'Silver Vein - Hillsbrad Foothills'),
+
+(75335, @POOL+8 , 45, 'Copper Vein - Hillsbrad Foothills'),
+(75336, @POOL+8 , 45, 'Tin Vein - Hillsbrad Foothills'),
+(75337, @POOL+8 , 10, 'Silver Vein - Hillsbrad Foothills'),
+
+(75374, @POOL+9 , 45, 'Copper Vein - Hillsbrad Foothills'),
+(75375, @POOL+9 , 45, 'Tin Vein - Hillsbrad Foothills'),
+(75376, @POOL+9 , 10, 'Silver Vein - Hillsbrad Foothills'),
+
+(75293, @POOL+10, 45, 'Copper Vein - Hillsbrad Foothills'),
+(75294, @POOL+10, 45, 'Tin Vein - Hillsbrad Foothills'),
+(75295, @POOL+10, 10, 'Silver Vein - Hillsbrad Foothills'),
+
+(75398, @POOL+11, 45, 'Copper Vein - Hillsbrad Foothills'),
+(75399, @POOL+11, 45, 'Tin Vein - Hillsbrad Foothills'),
+(75400, @POOL+11, 10, 'Silver Vein - Hillsbrad Foothills'),
+
+(75296, @POOL+12, 45, 'Copper Vein - Hillsbrad Foothills'),
+(75297, @POOL+12, 45, 'Tin Vein - Hillsbrad Foothills'),
+(75298, @POOL+12, 10, 'Silver Vein - Hillsbrad Foothills'),
+
+(75401, @POOL+12, 0, 'Copper Vein - Hillsbrad Foothills - Mega Group'),
+(75402, @POOL+12, 0, 'Tin Vein - Hillsbrad Foothills - Mega Group'),
+(75403, @POOL+12, 0, 'Silver Vein - Hillsbrad Foothills - Mega Group'),
+(75471, @POOL+12, 0, 'Iron Deposit - Hillsbrad Foothills - Mega Group'),
+(75472, @POOL+12, 0, 'Mithril Deposit - Hillsbrad Foothills - Mega Group'),
+(75473, @POOL+12, 0, 'Gold Vein - Hillsbrad Foothills - Mega Group'),
+(75474, @POOL+12, 0, 'Truesilver Deposit - Hillsbrad Foothills - Mega Group'),
+
+(75344, @POOL+13, 45, 'Copper Vein - Hillsbrad Foothills'),
+(75345, @POOL+13, 45, 'Tin Vein - Hillsbrad Foothills'),
+(75346, @POOL+13, 10, 'Silver Vein - Hillsbrad Foothills'),
+
+(75200, @POOL+14, 45, 'Copper Vein - Hillsbrad Foothills'),
+(75201, @POOL+14, 45, 'Tin Vein - Hillsbrad Foothills'),
+(75202, @POOL+14, 10, 'Silver Vein - Hillsbrad Foothills'),
+
+(75377, @POOL+15, 45, 'Copper Vein - Hillsbrad Foothills'),
+(75378, @POOL+15, 45, 'Tin Vein - Hillsbrad Foothills'),
+(75379, @POOL+15, 10, 'Silver Vein - Hillsbrad Foothills'),
+
+(75386, @POOL+16, 45, 'Copper Vein - Hillsbrad Foothills'),
+(75387, @POOL+16, 45, 'Tin Vein - Hillsbrad Foothills'),
+(75388, @POOL+16, 10, 'Silver Vein - Hillsbrad Foothills'),
+
+(75380, @POOL+17, 45, 'Copper Vein - Hillsbrad Foothills'),
+(75381, @POOL+17, 45, 'Tin Vein - Hillsbrad Foothills'),
+(75382, @POOL+17, 10, 'Silver Vein - Hillsbrad Foothills'),
+
+(75389, @POOL+18, 45, 'Copper Vein - Hillsbrad Foothills'),
+(75390, @POOL+18, 45, 'Tin Vein - Hillsbrad Foothills'),
+(75391, @POOL+18, 10, 'Silver Vein - Hillsbrad Foothills'),
+
+(75487, @POOL+19, 40, 'Iron Deposit - Hillsbrad Foothills'),
+(75488, @POOL+19, 40, 'Mithril Deposit - Hillsbrad Foothills'),
+(75489, @POOL+19, 10, 'Gold Vein - Hillsbrad Foothills'),
+(75490, @POOL+19, 10, 'Truesilver Deposit - Hillsbrad Foothills'),
+
+(75218, @POOL+20, 45, 'Copper Vein - Hillsbrad Foothills'),
+(75219, @POOL+20, 45, 'Tin Vein - Hillsbrad Foothills'),
+(75220, @POOL+20, 10, 'Silver Vein - Hillsbrad Foothills'),
+
+(75269, @POOL+21, 45, 'Copper Vein - Hillsbrad Foothills'),
+(75270, @POOL+21, 45, 'Tin Vein - Hillsbrad Foothills'),
+(75271, @POOL+21, 10, 'Silver Vein - Hillsbrad Foothills'),
+
+(75281, @POOL+22, 45, 'Copper Vein - Hillsbrad Foothills'),
+(75282, @POOL+22, 45, 'Tin Vein - Hillsbrad Foothills'),
+(75283, @POOL+22, 10, 'Silver Vein - Hillsbrad Foothills'),
+
+(75329, @POOL+23, 45, 'Copper Vein - Hillsbrad Foothills'),
+(75330, @POOL+23, 45, 'Tin Vein - Hillsbrad Foothills'),
+(75331, @POOL+23, 10, 'Silver Vein - Hillsbrad Foothills'),
+
+(75326, @POOL+24, 45, 'Copper Vein - Hillsbrad Foothills'),
+(75327, @POOL+24, 45, 'Tin Vein - Hillsbrad Foothills'),
+(75328, @POOL+24, 10, 'Silver Vein - Hillsbrad Foothills'),
+
+(75356, @POOL+25, 45, 'Copper Vein - Hillsbrad Foothills'),
+(75357, @POOL+25, 45, 'Tin Vein - Hillsbrad Foothills'),
+(75358, @POOL+25, 10, 'Silver Vein - Hillsbrad Foothills'),
+
+(75368, @POOL+26, 45, 'Copper Vein - Hillsbrad Foothills'),
+(75369, @POOL+26, 45, 'Tin Vein - Hillsbrad Foothills'),
+(75370, @POOL+26, 10, 'Silver Vein - Hillsbrad Foothills'),
+
+(75290, @POOL+27, 45, 'Copper Vein - Hillsbrad Foothills'),
+(75291, @POOL+27, 45, 'Tin Vein - Hillsbrad Foothills'),
+(75292, @POOL+27, 10, 'Silver Vein - Hillsbrad Foothills'),
+
+(75278, @POOL+28, 45, 'Copper Vein - Hillsbrad Foothills'),
+(75279, @POOL+28, 45, 'Tin Vein - Hillsbrad Foothills'),
+(75280, @POOL+28, 10, 'Silver Vein - Hillsbrad Foothills'),
+
+(75284, @POOL+29, 45, 'Copper Vein - Hillsbrad Foothills'),
+(75285, @POOL+29, 45, 'Tin Vein - Hillsbrad Foothills'),
+(75286, @POOL+29, 10, 'Silver Vein - Hillsbrad Foothills'),
+
+(75302, @POOL+30, 45, 'Copper Vein - Hillsbrad Foothills'),
+(75303, @POOL+30, 45, 'Tin Vein - Hillsbrad Foothills'),
+(75304, @POOL+30, 10, 'Silver Vein - Hillsbrad Foothills'),
+
+(75347, @POOL+31, 45, 'Copper Vein - Hillsbrad Foothills'),
+(75348, @POOL+31, 45, 'Tin Vein - Hillsbrad Foothills'),
+(75349, @POOL+31, 10, 'Silver Vein - Hillsbrad Foothills'),
+
+(75332, @POOL+32, 45, 'Copper Vein - Hillsbrad Foothills'),
+(75333, @POOL+32, 45, 'Tin Vein - Hillsbrad Foothills'),
+(75334, @POOL+32, 10, 'Silver Vein - Hillsbrad Foothills'),
+
+(75353, @POOL+33, 45, 'Copper Vein - Hillsbrad Foothills'),
+(75354, @POOL+33, 45, 'Tin Vein - Hillsbrad Foothills'),
+(75355, @POOL+33, 10, 'Silver Vein - Hillsbrad Foothills'),
+
+(75392, @POOL+34, 45, 'Copper Vein - Hillsbrad Foothills'),
+(75393, @POOL+34, 45, 'Tin Vein - Hillsbrad Foothills'),
+(75394, @POOL+34, 10, 'Silver Vein - Hillsbrad Foothills'),
+
+(75323, @POOL+35, 45, 'Copper Vein - Hillsbrad Foothills'),
+(75324, @POOL+35, 45, 'Tin Vein - Hillsbrad Foothills'),
+(75325, @POOL+35, 10, 'Silver Vein - Hillsbrad Foothills'),
+
+(75350, @POOL+36, 45, 'Copper Vein - Hillsbrad Foothills'),
+(75351, @POOL+36, 45, 'Tin Vein - Hillsbrad Foothills'),
+(75352, @POOL+36, 10, 'Silver Vein - Hillsbrad Foothills'),
+
+(75395, @POOL+37, 45, 'Copper Vein - Hillsbrad Foothills'),
+(75396, @POOL+37, 45, 'Tin Vein - Hillsbrad Foothills'),
+(75397, @POOL+37, 10, 'Silver Vein - Hillsbrad Foothills'),
+
+(75266, @POOL+38, 45, 'Copper Vein - Hillsbrad Foothills'),
+(75267, @POOL+38, 45, 'Tin Vein - Hillsbrad Foothills'),
+(75268, @POOL+38, 10, 'Silver Vein - Hillsbrad Foothills'),
+
+(75230, @POOL+39, 45, 'Copper Vein - Hillsbrad Foothills'),
+(75231, @POOL+39, 45, 'Tin Vein - Hillsbrad Foothills'),
+(75232, @POOL+39, 10, 'Silver Vein - Hillsbrad Foothills'),
+
+(75233, @POOL+40, 45, 'Copper Vein - Hillsbrad Foothills'),
+(75234, @POOL+40, 45, 'Tin Vein - Hillsbrad Foothills'),
+(75235, @POOL+40, 10, 'Silver Vein - Hillsbrad Foothills'),
+
+(75248, @POOL+41, 45, 'Copper Vein - Hillsbrad Foothills'),
+(75249, @POOL+41, 45, 'Tin Vein - Hillsbrad Foothills'),
+(75250, @POOL+41, 10, 'Silver Vein - Hillsbrad Foothills'),
+
+(75227, @POOL+42, 45, 'Copper Vein - Hillsbrad Foothills'),
+(75228, @POOL+42, 45, 'Tin Vein - Hillsbrad Foothills'),
+(75229, @POOL+42, 10, 'Silver Vein - Hillsbrad Foothills'),
+
+(75254, @POOL+43, 45, 'Copper Vein - Hillsbrad Foothills'),
+(75255, @POOL+43, 45, 'Tin Vein - Hillsbrad Foothills'),
+(75256, @POOL+43, 10, 'Silver Vein - Hillsbrad Foothills'),
+
+(75209, @POOL+44, 45, 'Copper Vein - Hillsbrad Foothills'),
+(75210, @POOL+44, 45, 'Tin Vein - Hillsbrad Foothills'),
+(75211, @POOL+44, 10, 'Silver Vein - Hillsbrad Foothills'),
+
+(75203, @POOL+45, 45, 'Copper Vein - Hillsbrad Foothills'),
+(75204, @POOL+45, 45, 'Tin Vein - Hillsbrad Foothills'),
+(75205, @POOL+45, 10, 'Silver Vein - Hillsbrad Foothills'),
+
+(75260, @POOL+46, 45, 'Copper Vein - Hillsbrad Foothills'),
+(75261, @POOL+46, 45, 'Tin Vein - Hillsbrad Foothills'),
+(75262, @POOL+46, 10, 'Silver Vein - Hillsbrad Foothills'),
+
+(75221, @POOL+47, 45, 'Copper Vein - Hillsbrad Foothills'),
+(75222, @POOL+47, 45, 'Tin Vein - Hillsbrad Foothills'),
+(75223, @POOL+47, 10, 'Silver Vein - Hillsbrad Foothills'),
+
+(75341, @POOL+48, 45, 'Copper Vein - Hillsbrad Foothills'),
+(75342, @POOL+48, 45, 'Tin Vein - Hillsbrad Foothills'),
+(75343, @POOL+48, 10, 'Silver Vein - Hillsbrad Foothills'),
+
+(75263, @POOL+49, 45, 'Copper Vein - Hillsbrad Foothills'),
+(75264, @POOL+49, 45, 'Tin Vein - Hillsbrad Foothills'),
+(75265, @POOL+49, 10, 'Silver Vein - Hillsbrad Foothills'),
+
+(75236, @POOL+50, 45, 'Copper Vein - Hillsbrad Foothills'),
+(75237, @POOL+50, 45, 'Tin Vein - Hillsbrad Foothills'),
+(75238, @POOL+50, 10, 'Silver Vein - Hillsbrad Foothills'),
+
+(75365, @POOL+51, 45, 'Copper Vein - Hillsbrad Foothills'),
+(75366, @POOL+51, 45, 'Tin Vein - Hillsbrad Foothills'),
+(75367, @POOL+51, 10, 'Silver Vein - Hillsbrad Foothills'),
+
+(75299, @POOL+52, 45, 'Copper Vein - Hillsbrad Foothills'),
+(75300, @POOL+52, 45, 'Tin Vein - Hillsbrad Foothills'),
+(75301, @POOL+52, 10, 'Silver Vein - Hillsbrad Foothills'),
+
+(75245, @POOL+53, 45, 'Copper Vein - Hillsbrad Foothills'),
+(75246, @POOL+53, 45, 'Tin Vein - Hillsbrad Foothills'),
+(75247, @POOL+53, 10, 'Silver Vein - Hillsbrad Foothills'),
+
+(75215, @POOL+54, 45, 'Copper Vein - Hillsbrad Foothills'),
+(75216, @POOL+54, 45, 'Tin Vein - Hillsbrad Foothills'),
+(75217, @POOL+54, 10, 'Silver Vein - Hillsbrad Foothills'),
+
+(75206, @POOL+55, 45, 'Copper Vein - Hillsbrad Foothills'),
+(75207, @POOL+55, 45, 'Tin Vein - Hillsbrad Foothills'),
+(75208, @POOL+55, 10, 'Silver Vein - Hillsbrad Foothills'),
+
+(75320, @POOL+56, 45, 'Copper Vein - Hillsbrad Foothills'),
+(75321, @POOL+56, 45, 'Tin Vein - Hillsbrad Foothills'),
+(75322, @POOL+56, 10, 'Silver Vein - Hillsbrad Foothills'),
+
+(75308, @POOL+57, 45, 'Copper Vein - Hillsbrad Foothills'),
+(75309, @POOL+57, 45, 'Tin Vein - Hillsbrad Foothills'),
+(75310, @POOL+57, 10, 'Silver Vein - Hillsbrad Foothills'),
+
+(75287, @POOL+58, 45, 'Copper Vein - Hillsbrad Foothills'),
+(75288, @POOL+58, 45, 'Tin Vein - Hillsbrad Foothills'),
+(75289, @POOL+58, 10, 'Silver Vein - Hillsbrad Foothills'),
+
+(75275, @POOL+59, 45, 'Copper Vein - Hillsbrad Foothills'),
+(75276, @POOL+59, 45, 'Tin Vein - Hillsbrad Foothills'),
+(75277, @POOL+59, 10, 'Silver Vein - Hillsbrad Foothills'),
+
+(75338, @POOL+60, 45, 'Copper Vein - Hillsbrad Foothills'),
+(75339, @POOL+60, 45, 'Tin Vein - Hillsbrad Foothills'),
+(75340, @POOL+60, 10, 'Silver Vein - Hillsbrad Foothills'),
+
+(75371, @POOL+61, 45, 'Copper Vein - Hillsbrad Foothills'),
+(75372, @POOL+61, 45, 'Tin Vein - Hillsbrad Foothills'),
+(75373, @POOL+61, 10, 'Silver Vein - Hillsbrad Foothills');
