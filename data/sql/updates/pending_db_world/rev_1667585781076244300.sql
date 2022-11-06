@@ -3,8 +3,6 @@
 75252 (Entry: 1732) - Tin Vein X:-1458.579956 Y:-1085.959961 Z:7.964060 MapId:0 
 75253 (Entry: 1733) - Silver Vein X:-1458.579956 Y:-1085.959961 Z:7.964060 MapId:0 
 Found near gameobjects (distance 10.000000): 3 
-120808 (Entry: 1735) - Iron Deposit X:-1373.790039 Y:-1072.680054 Z:19.706100 MapId:0 
-Found near gameobjects (distance 10.000000): 1 
 75404 (Entry: 1731) - Copper Vein X:-1236.349976 Y:-986.903015 Z:16.541800 MapId:0 
 75405 (Entry: 1732) - Tin Vein X:-1236.349976 Y:-986.903015 Z:16.541800 MapId:0 
 75406 (Entry: 1733) - Silver Vein X:-1236.349976 Y:-986.903015 Z:16.541800 MapId:0 
@@ -33,8 +31,6 @@ Found near gameobjects (distance 10.000000): 4
 75336 (Entry: 1732) - Tin Vein X:-619.142029 Y:-1014.929993 Z:61.855099 MapId:0 
 75337 (Entry: 1733) - Silver Vein X:-619.142029 Y:-1014.929993 Z:61.855099 MapId:0 
 Found near gameobjects (distance 10.000000): 3 
-75242 (Entry: 1731) - Copper Vein X:-620.953003 Y:-849.445007 Z:39.393799 MapId:0 
-Found near gameobjects (distance 10.000000): 1 
 75374 (Entry: 1731) - Copper Vein X:-770.000000 Y:-1192.000000 Z:69.220001 MapId:0 
 75375 (Entry: 1732) - Tin Vein X:-770.000000 Y:-1192.000000 Z:69.220001 MapId:0 
 75376 (Entry: 1733) - Silver Vein X:-770.000000 Y:-1192.000000 Z:69.220001 MapId:0 
@@ -50,9 +46,7 @@ Found near gameobjects (distance 10.000000): 3
 75296 (Entry: 1731) - Copper Vein X:-999.125977 Y:-1117.260010 Z:53.234699 MapId:0 
 75297 (Entry: 1732) - Tin Vein X:-999.125977 Y:-1117.260010 Z:53.234699 MapId:0 
 75298 (Entry: 1733) - Silver Vein X:-999.125977 Y:-1117.260010 Z:53.234699 MapId:0 
-Found near gameobjects (distance 10.000000): 3 
-5524 (Entry: 1732) - Tin Vein X:-1123.000000 Y:-1277.000000 Z:66.214996 MapId:0 
-Found near gameobjects (distance 10.000000): 1 
+Found near gameobjects (distance 10.000000): 3  
 75401 (Entry: 1731) - Copper Vein X:-1171.689941 Y:-1305.329956 Z:86.214401 MapId:0 
 75402 (Entry: 1732) - Tin Vein X:-1171.689941 Y:-1305.329956 Z:86.214401 MapId:0 
 75403 (Entry: 1733) - Silver Vein X:-1171.689941 Y:-1305.329956 Z:86.214401 MapId:0 
@@ -85,8 +79,6 @@ Found near gameobjects (distance 10.000000): 3
 75390 (Entry: 1732) - Tin Vein X:-392.000000 Y:-1775.000000 Z:113.070999 MapId:0 
 75391 (Entry: 1733) - Silver Vein X:-392.000000 Y:-1775.000000 Z:113.070999 MapId:0 
 Found near gameobjects (distance 10.000000): 4 
-120807 (Entry: 1735) - Iron Deposit X:-356.235992 Y:-1705.290039 Z:96.556602 MapId:0 
-Found near gameobjects (distance 10.000000): 1 
 75487 (Entry: 1735) - Iron Deposit X:-260.000000 Y:-1753.000000 Z:125.660004 MapId:0 
 75488 (Entry: 2040) - Mithril Deposit X:-260.000000 Y:-1753.000000 Z:125.660004 MapId:0 
 75489 (Entry: 1734) - Gold Vein X:-260.000000 Y:-1753.000000 Z:125.660004 MapId:0 
@@ -104,8 +96,6 @@ Found near gameobjects (distance 10.000000): 3
 75282 (Entry: 1732) - Tin Vein X:-90.045097 Y:-1361.989990 Z:123.778000 MapId:0 
 75283 (Entry: 1733) - Silver Vein X:-90.045097 Y:-1361.989990 Z:123.778000 MapId:0 
 Found near gameobjects (distance 10.000000): 3 
-120794 (Entry: 1732) - Tin Vein X:15.019600 Y:-1247.400024 Z:67.824997 MapId:0 
-Found near gameobjects (distance 10.000000): 1 
 75329 (Entry: 1731) - Copper Vein X:52.390800 Y:-1232.239990 Z:71.268898 MapId:0 
 75330 (Entry: 1732) - Tin Vein X:52.390800 Y:-1232.239990 Z:71.268898 MapId:0 
 75331 (Entry: 1733) - Silver Vein X:52.390800 Y:-1232.239990 Z:71.268898 MapId:0 
@@ -126,8 +116,6 @@ Found near gameobjects (distance 10.000000): 3
 75291 (Entry: 1732) - Tin Vein X:143.440994 Y:-925.820984 Z:79.443298 MapId:0 
 75292 (Entry: 1733) - Silver Vein X:143.440994 Y:-925.820984 Z:79.443298 MapId:0 
 Found near gameobjects (distance 10.000000): 3 
-120367 (Entry: 1732) - Tin Vein X:146.455002 Y:-789.080994 Z:96.431602 MapId:0 
-Found near gameobjects (distance 10.000000): 1 
 75278 (Entry: 1731) - Copper Vein X:218.195999 Y:-755.703003 Z:109.082001 MapId:0 
 75279 (Entry: 1732) - Tin Vein X:218.195999 Y:-755.703003 Z:109.082001 MapId:0 
 75280 (Entry: 1733) - Silver Vein X:218.195999 Y:-755.703003 Z:109.082001 MapId:0 
@@ -180,8 +168,6 @@ Found near gameobjects (distance 10.000000): 3
 75234 (Entry: 1732) - Tin Vein X:-386.992004 Y:260.187012 Z:94.646202 MapId:0 
 75235 (Entry: 1733) - Silver Vein X:-386.992004 Y:260.187012 Z:94.646202 MapId:0 
 Found near gameobjects (distance 10.000000): 3 
-120700 (Entry: 1731) - Copper Vein X:-472.812012 Y:368.855988 Z:106.055000 MapId:0 
-Found near gameobjects (distance 10.000000): 1 
 75248 (Entry: 1731) - Copper Vein X:-665.000000 Y:489.126007 Z:88.027000 MapId:0 
 75249 (Entry: 1732) - Tin Vein X:-665.000000 Y:489.126007 Z:88.027000 MapId:0 
 75250 (Entry: 1733) - Silver Vein X:-665.000000 Y:489.126007 Z:88.027000 MapId:0 
@@ -220,15 +206,10 @@ Found near gameobjects (distance 10.000000): 3
 Found near gameobjects (distance 50.000000): 3 
 Watcher says: DELETE THESE
 Watcher says: OR MOVE
-120344 (Entry: 1731) - Copper Vein X:-745.487976 Y:-98.021301 Z:57.857800 MapId:0 
-Found near gameobjects (distance 10.000000): 1 
-Found near gameobjects (distance 10.000000): 0 
-Found near gameobjects (distance 10.000000): 0 
 75263 (Entry: 1731) - Copper Vein X:-740.000000 Y:-237.000000 Z:37.234001 MapId:0 
 75264 (Entry: 1732) - Tin Vein X:-740.000000 Y:-237.000000 Z:37.234001 MapId:0 
 75265 (Entry: 1733) - Silver Vein X:-740.000000 Y:-237.000000 Z:37.234001 MapId:0 
 Found near gameobjects (distance 10.000000): 3 
-Found near gameobjects (distance 10.000000): 0 
 75236 (Entry: 1731) - Copper Vein X:-743.788025 Y:-245.082993 Z:40.216900 MapId:0 
 75237 (Entry: 1732) - Tin Vein X:-743.788025 Y:-245.082993 Z:40.216900 MapId:0 
 75238 (Entry: 1733) - Silver Vein X:-743.788025 Y:-245.082993 Z:40.216900 MapId:0 
@@ -241,8 +222,6 @@ Found near gameobjects (distance 10.000000): 3
 75300 (Entry: 1732) - Tin Vein X:-1000.520020 Y:30.584299 Z:43.394199 MapId:0 
 75301 (Entry: 1733) - Silver Vein X:-1000.520020 Y:30.584299 Z:43.394199 MapId:0 
 Found near gameobjects (distance 10.000000): 3 
-120605 (Entry: 1731) - Copper Vein X:-1004.349976 Y:-339.056000 Z:13.731900 MapId:0 
-Found near gameobjects (distance 10.000000): 1 
 75245 (Entry: 1731) - Copper Vein X:-497.000000 Y:-824.000000 Z:49.307999 MapId:0 
 75246 (Entry: 1732) - Tin Vein X:-497.000000 Y:-824.000000 Z:49.307999 MapId:0 
 75247 (Entry: 1733) - Silver Vein X:-497.000000 Y:-824.000000 Z:49.307999 MapId:0 
@@ -255,8 +234,6 @@ Found near gameobjects (distance 10.000000): 3
 75207 (Entry: 1732) - Tin Vein X:-315.450989 Y:-842.828003 Z:61.727200 MapId:0 
 75208 (Entry: 1733) - Silver Vein X:-315.450989 Y:-842.828003 Z:61.727200 MapId:0 
 Found near gameobjects (distance 10.000000): 3 
-120384 (Entry: 1732) - Tin Vein X:-277.789001 Y:-1020.469971 Z:66.264198 MapId:0 
-Found near gameobjects (distance 10.000000): 1 
 75362 (Entry: 1731) - Copper Vein X:-150.000000 Y:-997.000000 Z:60.231998 MapId:0 
 75363 (Entry: 1732) - Tin Vein X:-150.000000 Y:-997.000000 Z:60.231998 MapId:0 
 75364 (Entry: 1733) - Silver Vein X:-150.000000 Y:-997.000000 Z:60.231998 MapId:0 
@@ -264,8 +241,6 @@ Found near gameobjects (distance 10.000000): 1
 75321 (Entry: 1732) - Tin Vein X:-150.000000 Y:-996.000000 Z:60.480999 MapId:0 
 75322 (Entry: 1733) - Silver Vein X:-150.000000 Y:-996.000000 Z:60.480999 MapId:0 
 Found near gameobjects (distance 10.000000): 6 
-120383 (Entry: 1732) - Tin Vein X:-223.610001 Y:-1172.770020 Z:60.582001 MapId:0 
-Found near gameobjects (distance 10.000000): 1 
 75308 (Entry: 1731) - Copper Vein X:-298.248993 Y:-1197.989990 Z:67.991096 MapId:0 
 75309 (Entry: 1732) - Tin Vein X:-298.248993 Y:-1197.989990 Z:67.991096 MapId:0 
 75310 (Entry: 1733) - Silver Vein X:-298.248993 Y:-1197.989990 Z:67.991096 MapId:0 
@@ -278,8 +253,6 @@ Found near gameobjects (distance 10.000000): 3
 75276 (Entry: 1732) - Tin Vein X:-416.468994 Y:-1170.290039 Z:59.894001 MapId:0 
 75277 (Entry: 1733) - Silver Vein X:-416.468994 Y:-1170.290039 Z:59.894001 MapId:0 
 Found near gameobjects (distance 10.000000): 3 
-120792 (Entry: 1732) - Tin Vein X:-403.760986 Y:-1124.339966 Z:56.181900 MapId:0 
-Found near gameobjects (distance 10.000000): 1 
 75338 (Entry: 1731) - Copper Vein X:-531.000000 Y:-1178.000000 Z:60.577000 MapId:0 
 75339 (Entry: 1732) - Tin Vein X:-531.000000 Y:-1178.000000 Z:60.577000 MapId:0 
 75340 (Entry: 1733) - Silver Vein X:-531.000000 Y:-1178.000000 Z:60.577000 MapId:0 
