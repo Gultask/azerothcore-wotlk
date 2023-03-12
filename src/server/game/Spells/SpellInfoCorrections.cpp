@@ -3831,13 +3831,6 @@ void SpellMgr::LoadSpellInfoCorrections()
         spellInfo->AttributesEx3 |= SPELL_ATTR3_ALLOW_AURA_WHILE_DEAD;
     });
 
-    // Stormchops
-    ApplySpellFix({ 43730 }, [](SpellInfo* spellInfo)
-    {
-        spellInfo->Effects[EFFECT_1].TargetA = SpellImplicitTargetInfo(1);
-        spellInfo->Effects[EFFECT_1].TargetB = SpellImplicitTargetInfo();
-    });
-
     // Savory Deviate Delight (transformations), allow to mount while transformed
     ApplySpellFix({ 8219, 8220, 8221, 8222 }, [](SpellInfo* spellInfo)
     {
