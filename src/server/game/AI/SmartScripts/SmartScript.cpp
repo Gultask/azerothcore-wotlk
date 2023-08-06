@@ -602,9 +602,7 @@ void SmartScript::ProcessAction(SmartScriptHolder& e, Unit* unit, uint32 var0, u
                 else if (me && (!(e.action.cast.castFlags & SMARTCAST_AURA_NOT_PRESENT) || !target->ToUnit()->HasAura(e.action.cast.spell)))
                 {
                     if (e.action.cast.castFlags & SMARTCAST_INTERRUPT_PREVIOUS)
-                    {
                         me->InterruptNonMeleeSpells(false);
-                    }
 
                     if (e.action.cast.castFlags & SMARTCAST_THREATLIST_NOT_SINGLE)
                         if (me->GetThreatMgr().GetThreatListSize() <= 1)
@@ -4355,6 +4353,19 @@ void SmartScript::ProcessEvent(SmartScriptHolder& e, Unit* unit, uint32 var0, ui
         }
         case SMART_EVENT_AREA_RANGE:
         {
+            float range[2] = { 0.f };
+
+            // This allows setting a minimum range without adding another parameter for events. Mainly to be used with spells like Charge (for example, Felguards in Blood Furnace)
+            switch (e.GetActionType())
+            {
+            case SMART_ACTION_CAST:
+                float range[2] = { e.target.x, (float)e.event.areaRange.range };
+                break;
+            default:
+                float range[2] = { 0.f, (float)e.event.areaRange.range };
+                break;
+            }
+
             if (!me || !me->IsEngaged())
                 return;
 
@@ -4363,7 +4374,7 @@ void SmartScript::ProcessEvent(SmartScriptHolder& e, Unit* unit, uint32 var0, ui
             {
                 if (Unit* target = ObjectAccessor::GetUnit(*me, (*i)->getUnitGuid()))
                 {
-                    if (!(me->IsInRange(target, 0.f, (float)e.event.areaRange.range)))
+                    if (!(me->IsInRange(target, range[0], range[1])))
                         continue;
 
                     ProcessAction(e, target);
