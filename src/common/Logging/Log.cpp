@@ -29,7 +29,6 @@
 #include "Timer.h"
 #include "Tokenize.h"
 #include <chrono>
-#include <sstream>
 
 Log::Log() : AppenderId(0), highestLogLevel(LOG_LEVEL_FATAL)
 {
@@ -339,7 +338,7 @@ void Log::Close()
 
 bool Log::ShouldLog(std::string const& type, LogLevel level) const
 {
-    // TODO: Use cache to store "Type.sub1.sub2": "Type" equivalence, should
+    /// @todo: Use cache to store "Type.sub1.sub2": "Type" equivalence, should
     // Speed up in cases where requesting "Type.sub1.sub2" but only configured
     // Logger "Type"
 

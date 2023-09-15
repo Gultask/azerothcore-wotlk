@@ -20,7 +20,6 @@
 #include "Config.h"
 #include "GameTime.h"
 #include "GridNotifiers.h"
-#include "GridNotifiersImpl.h"
 #include "Group.h"
 #include "InstanceScript.h"
 #include "Log.h"
@@ -136,6 +135,8 @@ bool InstanceSaveMgr::DeleteInstanceSaveIfNeeded(InstanceSave* save, bool skipMa
 
         // clear respawn times (if map is loaded do it just to be sure, if already unloaded it won't do it by itself)
         Map::DeleteRespawnTimesInDB(save->GetMapId(), save->GetInstanceId());
+
+        sScriptMgr->OnInstanceIdRemoved(save->GetInstanceId());
 
         if (deleteSave)
         {
@@ -528,6 +529,8 @@ void InstanceSaveMgr::_ResetSave(InstanceSaveHashMap::iterator& itr)
         // clear respawn times if the map is already unloaded and won't do it by itself
         if (!sMapMgr->FindMap(itr->second->GetMapId(), itr->second->GetInstanceId()))
             Map::DeleteRespawnTimesInDB(itr->second->GetMapId(), itr->second->GetInstanceId());
+
+        sScriptMgr->OnInstanceIdRemoved(itr->second->GetInstanceId());
 
         delete itr->second;
         m_instanceSaveById.erase(itr);

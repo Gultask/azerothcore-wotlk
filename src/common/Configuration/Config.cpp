@@ -21,6 +21,7 @@
 #include "StringFormat.h"
 #include "Tokenize.h"
 #include "Util.h"
+#include <cstdlib>
 #include <fstream>
 #include <mutex>
 #include <unordered_map>
@@ -32,15 +33,15 @@ namespace
     std::vector<std::string> _args;
     std::unordered_map<std::string /*name*/, std::string /*value*/> _configOptions;
     std::mutex _configLock;
-    bool _usingDistConfig = false;
 
     // Check system configs like *server.conf*
     bool IsAppConfig(std::string_view fileName)
     {
         size_t foundAuth = fileName.find("authserver.conf");
         size_t foundWorld = fileName.find("worldserver.conf");
+        size_t foundImport = fileName.find("dbimport.conf");
 
-        return foundAuth != std::string_view::npos || foundWorld != std::string_view::npos;
+        return foundAuth != std::string_view::npos || foundWorld != std::string_view::npos || foundImport != std::string_view::npos;
     }
 
     // Check logging system configs like Appender.* and Logger.*
@@ -216,6 +217,81 @@ namespace
 
         return false;
     }
+
+    // Converts ini keys to the environment variable key (upper snake case).
+    // Example of conversions:
+    //   SomeConfig => SOME_CONFIG
+    //   myNestedConfig.opt1 => MY_NESTED_CONFIG_OPT_1
+    //   LogDB.Opt.ClearTime => LOG_DB_OPT_CLEAR_TIME
+    std::string IniKeyToEnvVarKey(std::string const& key)
+    {
+        std::string result;
+
+        const char* str = key.c_str();
+        size_t n = key.length();
+
+        char curr;
+        bool isEnd;
+        bool nextIsUpper;
+        bool currIsNumeric;
+        bool nextIsNumeric;
+
+        for (size_t i = 0; i < n; ++i)
+        {
+            curr = str[i];
+            if (curr == ' ' || curr == '.' || curr == '-')
+            {
+                result += '_';
+                continue;
+            }
+
+            isEnd = i == n - 1;
+            if (!isEnd)
+            {
+                nextIsUpper = isupper(str[i + 1]);
+
+                // handle "aB" to "A_B"
+                if (!isupper(curr) && nextIsUpper)
+                {
+                    result += static_cast<char>(std::toupper(curr));
+                    result += '_';
+                    continue;
+                }
+
+                currIsNumeric = isNumeric(curr);
+                nextIsNumeric = isNumeric(str[i + 1]);
+
+                // handle "a1" to "a_1"
+                if (!currIsNumeric && nextIsNumeric)
+                {
+                    result += static_cast<char>(std::toupper(curr));
+                    result += '_';
+                    continue;
+                }
+
+                // handle "1a" to "1_a"
+                if (currIsNumeric && !nextIsNumeric)
+                {
+                    result += static_cast<char>(std::toupper(curr));
+                    result += '_';
+                    continue;
+                }
+            }
+
+            result += static_cast<char>(std::toupper(curr));
+        }
+        return result;
+    }
+
+    Optional<std::string> EnvVarForIniKey(std::string const& key)
+    {
+        std::string envKey = "AC_" + IniKeyToEnvVarKey(key);
+        char* val = std::getenv(envKey.c_str());
+        if (!val)
+            return std::nullopt;
+
+        return std::string(val);
+    }
 }
 
 bool ConfigMgr::LoadInitial(std::string const& file, bool isReload /*= false*/)
@@ -244,25 +320,72 @@ bool ConfigMgr::Reload()
         return false;
     }
 
-    return LoadModulesConfigs(true, false);
+    if (!LoadModulesConfigs(true, false))
+    {
+        return false;
+    }
+
+    OverrideWithEnvVariablesIfAny();
+
+    return true;
+}
+
+std::vector<std::string> ConfigMgr::OverrideWithEnvVariablesIfAny()
+{
+    std::lock_guard<std::mutex> lock(_configLock);
+
+    std::vector<std::string> overriddenKeys;
+
+    for (auto& itr : _configOptions)
+    {
+        if (itr.first.empty())
+            continue;
+
+        Optional<std::string> envVar = EnvVarForIniKey(itr.first);
+        if (!envVar)
+            continue;
+
+        itr.second = *envVar;
+
+        overriddenKeys.push_back(itr.first);
+    }
+
+    return overriddenKeys;
 }
 
 template<class T>
 T ConfigMgr::GetValueDefault(std::string const& name, T const& def, bool showLogs /*= true*/) const
 {
+    std::string strValue;
     auto const& itr = _configOptions.find(name);
     if (itr == _configOptions.end())
     {
-        if (showLogs)
+        Optional<std::string> envVar = EnvVarForIniKey(name);
+        if (!envVar)
         {
-            LOG_ERROR("server.loading", "> Config: Missing property {} in all config files, at least the .dist file must contain: \"{} = {}\"",
-                name, name, Acore::ToString(def));
+            if (showLogs)
+            {
+                LOG_ERROR("server.loading", "> Config: Missing property {} in config file {}, add \"{} = {}\" to this file.",
+                    name, _filename, name, Acore::ToString(def));
+            }
+
+            return def;
         }
 
-        return def;
+        if (showLogs)
+        {
+            LOG_WARN("server.loading", "Missing property {} in config file {}, recovered with environment '{}' value.",
+                name, _filename, envVar->c_str());
+        }
+
+        strValue = *envVar;
+    }
+    else
+    {
+        strValue = itr->second;
     }
 
-    auto value = Acore::StringTo<T>(itr->second);
+    auto value = Acore::StringTo<T>(strValue);
     if (!value)
     {
         if (showLogs)
@@ -283,10 +406,22 @@ std::string ConfigMgr::GetValueDefault<std::string>(std::string const& name, std
     auto const& itr = _configOptions.find(name);
     if (itr == _configOptions.end())
     {
+        Optional<std::string> envVar = EnvVarForIniKey(name);
+        if (envVar)
+        {
+            if (showLogs)
+            {
+                LOG_WARN("server.loading", "Missing property {} in config file {}, recovered with environment '{}' value.",
+                    name, _filename, envVar->c_str());
+            }
+
+            return *envVar;
+        }
+
         if (showLogs)
         {
-            LOG_ERROR("server.loading", "> Config: Missing option {}, add \"{} = {}\"",
-                name, name, def);
+            LOG_ERROR("server.loading", "> Config: Missing property {} in config file {}, add \"{} = {}\" to this file.",
+                name, _filename, name, def);
         }
 
         return def;
@@ -341,7 +476,7 @@ std::vector<std::string> ConfigMgr::GetKeysByString(std::string const& name)
 std::string const ConfigMgr::GetFilename()
 {
     std::lock_guard<std::mutex> lock(_configLock);
-    return _usingDistConfig ? _filename + ".dist" : _filename;
+    return _filename;
 }
 
 std::vector<std::string> const& ConfigMgr::GetArguments() const
@@ -377,16 +512,10 @@ void ConfigMgr::Configure(std::string const& initFileName, std::vector<std::stri
 
 bool ConfigMgr::LoadAppConfigs(bool isReload /*= false*/)
 {
-    // #1 - Load init config file .conf.dist
-    if (!LoadInitial(_filename + ".dist", isReload))
+    // #1 - Load init config file .conf
+    if (!LoadInitial(_filename, isReload))
     {
         return false;
-    }
-
-    // #2 - Load .conf file
-    if (!LoadAdditionalFile(_filename, true, isReload))
-    {
-        _usingDistConfig = true;
     }
 
     return true;
@@ -469,25 +598,25 @@ bool ConfigMgr::LoadModulesConfigs(bool isReload /*= false*/, bool isNeedPrintIn
     return true;
 }
 
-// @deprecated DO NOT USE - use GetOption<std::string> instead.
+/// @deprecated DO NOT USE - use GetOption<std::string> instead.
 std::string ConfigMgr::GetStringDefault(std::string const& name, const std::string& def, bool showLogs /*= true*/)
 {
     return GetOption<std::string>(name, def, showLogs);
 }
 
-// @deprecated DO NOT USE - use GetOption<bool> instead.
+/// @deprecated DO NOT USE - use GetOption<bool> instead.
 bool ConfigMgr::GetBoolDefault(std::string const& name, bool def, bool showLogs /*= true*/)
 {
     return GetOption<bool>(name, def, showLogs);
 }
 
-// @deprecated DO NOT USE - use GetOption<int32> instead.
+/// @deprecated DO NOT USE - use GetOption<int32> instead.
 int ConfigMgr::GetIntDefault(std::string const& name, int def, bool showLogs /*= true*/)
 {
     return GetOption<int32>(name, def, showLogs);
 }
 
-// @deprecated DO NOT USE - use GetOption<float> instead.
+/// @deprecated DO NOT USE - use GetOption<float> instead.
 float ConfigMgr::GetFloatDefault(std::string const& name, float def, bool showLogs /*= true*/)
 {
     return GetOption<float>(name, def, showLogs);

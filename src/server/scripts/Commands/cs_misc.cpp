@@ -44,7 +44,7 @@
 #include "Tokenize.h"
 #include "WeatherMgr.h"
 
-// TODO: this import is not necessary for compilation and marked as unused by the IDE
+/// @todo: this import is not necessary for compilation and marked as unused by the IDE
 //  however, for some reasons removing it would cause a damn linking issue
 //  there is probably some underlying problem with imports which should properly addressed
 //  see: https://github.com/azerothcore/azerothcore-wotlk/issues/9766
@@ -127,7 +127,7 @@ public:
             { "cometome",          HandleComeToMeCommand,          SEC_ADMINISTRATOR,      Console::No  },
             { "damage",            HandleDamageCommand,            SEC_GAMEMASTER,         Console::No  },
             { "combatstop",        HandleCombatStopCommand,        SEC_GAMEMASTER,         Console::Yes },
-            { "flusharenapoints",  HandleFlushArenaPointsCommand,  SEC_ADMINISTRATOR,      Console::No  },
+            { "flusharenapoints",  HandleFlushArenaPointsCommand,  SEC_ADMINISTRATOR,      Console::Yes  },
             { "freeze",            HandleFreezeCommand,            SEC_GAMEMASTER,         Console::No  },
             { "unfreeze",          HandleUnFreezeCommand,          SEC_GAMEMASTER,         Console::No  },
             { "possess",           HandlePossessCommand,           SEC_GAMEMASTER,         Console::No  },
@@ -1966,7 +1966,7 @@ public:
             accId             = playerTarget->GetSession()->GetAccountId();
             money             = playerTarget->GetMoney();
             totalPlayerTime   = playerTarget->GetTotalPlayedTime();
-            level             = playerTarget->getLevel();
+            level             = playerTarget->GetLevel();
             latency           = playerTarget->GetSession()->GetLatency();
             raceid            = playerTarget->getRace();
             classid           = playerTarget->getClass();
