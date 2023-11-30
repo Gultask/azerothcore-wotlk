@@ -200,6 +200,9 @@ public:
 
     void OnSpellClick(Unit* clicker, bool& result) override;
 
+    // Will make the creature eligible for extra On Respawn actions
+    void SetScriptedSpawn(bool ss) { mScriptSpawn = ss; }
+
     // Xinef
     void SetWPPauseTimer(uint32 time) { mWPPauseTimer = time; }
     void SetForcedCombatMove(float dist);
@@ -242,6 +245,8 @@ private:
     void UpdateDespawn(const uint32 diff);
     uint32 mEscortInvokerCheckTimer;
     bool mJustReset;
+
+    bool mScriptSpawn;
 
     // Xinef: Vehicle conditions
     void CheckConditions(const uint32 diff);

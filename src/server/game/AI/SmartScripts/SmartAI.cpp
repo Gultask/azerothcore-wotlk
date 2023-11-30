@@ -70,6 +70,8 @@ SmartAI::SmartAI(Creature* c) : CreatureAI(c)
 
     mJustReset = false;
 
+    mScriptSpawn = false;
+
     // Xinef: Vehicle conditions
     m_ConditionsTimer = 0;
     if (me->GetVehicleKit())
@@ -769,6 +771,8 @@ void SmartAI::JustRespawned()
     mFollowArrivedEntry = 0;
     mFollowCreditType = 0;
     mFollowArrivedAlive = true;
+    if (mScriptSpawn)
+        GetScript()->ProcessEventsFor(SMART_EVENT_SCRIPTED_SPAWN);
 }
 
 void SmartAI::JustReachedHome()

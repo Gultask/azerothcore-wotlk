@@ -571,6 +571,7 @@ bool SmartAIMgr::CheckUnusedEventParams(SmartScriptHolder const& e)
             case SMART_EVENT_NEAR_UNIT_NEGATION: return sizeof(SmartEvent::nearUnitNegation);
             case SMART_EVENT_AREA_CASTING: return sizeof(SmartEvent::minMaxRepeat);
             case SMART_EVENT_AREA_RANGE: return sizeof(SmartEvent::minMaxRepeat);
+            case SMART_EVENT_SCRIPTED_SPAWN: return NO_PARAMS;
             default:
                 LOG_WARN("sql.sql", "SmartAIMgr: entryorguid {} source_type {} id {} action_type {} is using an event {} with no unused params specified in SmartAIMgr::CheckUnusedEventParams(), please report this.",
                             e.entryOrGuid, e.GetScriptType(), e.event_id, e.GetActionType(), e.GetEventType());
@@ -761,7 +762,7 @@ bool SmartAIMgr::CheckUnusedActionParams(SmartScriptHolder const& e)
             case SMART_ACTION_LOAD_GRID: return NO_PARAMS;
             case SMART_ACTION_MUSIC: return sizeof(SmartAction::music);
             case SMART_ACTION_SET_GUID: return sizeof(SmartAction::setGuid);
-            case SMART_ACTION_DISABLE: return sizeof(SmartAction::disable);
+            case SMART_ACTION_SET_SCRIPTED_SPAWN: return sizeof(SmartAction::scriptedSpawn);
             case SMART_ACTION_SET_SCALE: return sizeof(SmartAction::setScale);
             case SMART_ACTION_SUMMON_RADIAL: return sizeof(SmartAction::radialSummon);
             case SMART_ACTION_PLAY_SPELL_VISUAL: return sizeof(SmartAction::spellVisual);
@@ -1937,7 +1938,7 @@ bool SmartAIMgr::IsEventValid(SmartScriptHolder& e)
         case SMART_ACTION_ATTACK_STOP:
         case SMART_ACTION_PLAY_CINEMATIC:
         case SMART_ACTION_SET_GUID:
-        case SMART_ACTION_DISABLE:
+        case SMART_ACTION_SET_SCRIPTED_SPAWN:
         case SMART_ACTION_SET_SCALE:
         case SMART_ACTION_SUMMON_RADIAL:
         case SMART_ACTION_PLAY_SPELL_VISUAL:

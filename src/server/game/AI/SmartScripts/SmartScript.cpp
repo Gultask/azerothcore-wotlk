@@ -2827,14 +2827,19 @@ void SmartScript::ProcessAction(SmartScriptHolder& e, Unit* unit, uint32 var0, u
             }
             break;
         }
-        case SMART_ACTION_DISABLE:
+        case SMART_ACTION_SET_SCRIPTED_SPAWN:
         {
             for (WorldObject* target : targets)
             {
-                if (IsUnit(target))
+                if (IsUnit(target) && target->ToUnit()->IsAlive())
                 {
-                    target->ToUnit()->SetImmuneToAll(!e.action.disable.state);
-                    target->ToUnit()->SetVisible(e.action.disable.state);
+                    CAST_AI(SmartAI, target->ToCreature()->AI())->SetScriptedSpawn(true);
+                    target->ToCreature()->DisappearAndDie();
+                    target->ToCreature()->SetRespawnTime(YEAR);
+                }
+                else if (e.action.scriptedSpawn.respawn && IsUnit(target) && !target->ToUnit()->IsAlive())
+                {
+                    target->ToCreature()->Respawn();
                 }
             }
             break;

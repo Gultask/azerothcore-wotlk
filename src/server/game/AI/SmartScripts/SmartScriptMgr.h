@@ -212,8 +212,9 @@ enum SMART_EVENT
     SMART_EVENT_NEAR_UNIT_NEGATION       = 104,      // type (0: creature 1: gob), entry, count, range, timer
     SMART_EVENT_AREA_CASTING             = 105,      // min, max, repeatMin, repeatMax, rangeMin, rangeMax
     SMART_EVENT_AREA_RANGE               = 106,      // min, max, repeatMin, repeatMax, rangeMin, rangeMax
+    SMART_EVENT_SCRIPTED_SPAWN           = 107,
 
-    SMART_EVENT_AC_END                   = 107
+    SMART_EVENT_AC_END                   = 108
 };
 
 struct SmartEvent
@@ -706,7 +707,7 @@ enum SMART_ACTION
     SMART_ACTION_DO_ACTION                          = 223,    // ActionId
     SMART_ACTION_ATTACK_STOP                        = 224,    //
     SMART_ACTION_SET_GUID                           = 225,    // Sends the invoker's or the base object's own ObjectGuid to target
-    SMART_ACTION_DISABLE                            = 226,    // state
+    SMART_ACTION_SET_SCRIPTED_SPAWN                 = 226,    // state, respawn
     SMART_ACTION_SET_SCALE                          = 227,    // scale
     SMART_ACTION_SUMMON_RADIAL                      = 228,    // summonEntry, summonDuration, repetitions, startAngle, stepAngle, dist
     SMART_ACTION_PLAY_SPELL_VISUAL                  = 229,    // visualId, visualIdImpact
@@ -1394,7 +1395,8 @@ struct SmartAction
         struct
         {
             SAIBool state;
-        } disable;
+            SAIBool respawn;
+        } scriptedSpawn;
 
         struct
         {
