@@ -2831,13 +2831,13 @@ void SmartScript::ProcessAction(SmartScriptHolder& e, Unit* unit, uint32 var0, u
         {
             for (WorldObject* target : targets)
             {
-                if (IsUnit(target) && target->ToUnit()->IsAlive())
+                if (IsCreature(target) && !CAST_AI(SmartAI, target->ToCreature()->AI())->mScriptSpawn)
                 {
-                    CAST_AI(SmartAI, target->ToCreature()->AI())->SetScriptedSpawn(true);
+                    CAST_AI(SmartAI, target->ToCreature()->AI())->mScriptSpawn = true;
                     target->ToCreature()->DisappearAndDie();
                     target->ToCreature()->SetRespawnTime(YEAR);
                 }
-                else if (e.action.scriptedSpawn.respawn && IsUnit(target) && !target->ToUnit()->IsAlive())
+                else if (e.action.scriptedSpawn.respawn && IsCreature(target) && !target->ToUnit()->IsAlive())
                 {
                     target->ToCreature()->Respawn();
                 }
