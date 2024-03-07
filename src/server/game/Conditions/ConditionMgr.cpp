@@ -570,6 +570,16 @@ bool Condition::Meets(ConditionSourceInfo& sourceInfo)
             condMeets = unit->IsCharmed();
         break;
     }
+    case CONDITION_IN_POSITION:
+    {
+        float x = (float)ConditionValue1;
+        float y = (float)ConditionValue2;
+        float size = (float)ConditionValue3;
+        if (Unit* unit = object->ToUnit())
+            condMeets = (unit->GetPositionX() < (x + size) && unit->GetPositionX() > (x - size) && unit->GetPositionY() < (y + size) && unit->GetPositionY() > (y - size));
+
+        break;
+    }
     default:
         condMeets = false;
         break;
@@ -770,6 +780,8 @@ uint32 Condition::GetSearcherTypeMaskForCondition()
     case CONDITION_CHARMED:
         mask |= GRID_MAP_TYPE_MASK_CREATURE | GRID_MAP_TYPE_MASK_PLAYER;
         break;
+    case CONDITION_IN_POSITION:
+        mask |= GRID_MAP_TYPE_MASK_ALL;
     default:
         ASSERT(false && "Condition::GetSearcherTypeMaskForCondition - missing condition handling!");
         break;
@@ -2451,6 +2463,12 @@ bool ConditionMgr::isConditionTypeValid(Condition* cond)
             return false;
         }
         break;
+    case CONDITION_IN_POSITION:
+        if (!cond->ConditionValue3)
+        {
+            LOG_ERROR("sql.sql", "CONDITION_IN_POSITION has invalid size, skipped.");
+            return false;
+        }
     case CONDITION_TAXI:
     case CONDITION_IN_WATER:
     case CONDITION_CHARMED:
