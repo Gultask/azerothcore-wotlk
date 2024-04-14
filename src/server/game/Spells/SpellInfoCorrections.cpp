@@ -4797,6 +4797,12 @@ void SpellMgr::LoadSpellInfoCorrections()
         spellInfo->MaxAffectedTargets = 5;
     });
 
+    // Cannibalize
+    ApplySpellFix({ 31538 }, [](SpellInfo* spellInfo)
+    {
+            spellInfo->Effects[EFFECT_0].BasePoints = 9780;
+    });
+
     for (uint32 i = 0; i < GetSpellInfoStoreSize(); ++i)
     {
         SpellInfo* spellInfo = mSpellInfoMap[i];
