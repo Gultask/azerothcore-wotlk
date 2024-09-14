@@ -25,8 +25,8 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 
 DELETE FROM `creature_summon_groups` WHERE `summonerId` = 15402;
 INSERT INTO `creature_summon_groups` (`summonerId`, `summonerType`, `groupId`, `entry`, `position_x`, `position_y`, `position_z`, `orientation`, `summonType`, `summonTime`, `Comment`) VALUES
-(15402, 0, 1, 15958, 8751.291 Y: -7131.166 Z: 35.32785, 3.763218402862548828, 4, 10000, 'Apprentice Mirveda - Unexpected Results'),
-(15402, 0, 1, 15656, 8753.199 Y: -7125.975 Z: 35.319862, 3.847229719161987304, 4, 10000, 'Apprentice Mirveda - Unexpected Results'),
-(15402, 0, 1, 15656, 8755.38 Y: -7131.5215 Z: 35.309574, 3.688055276870727539, 4, 10000, 'Apprentice Mirveda - Unexpected Results');
+(15402, 0, 1, 15958, 8751.291, -7131.166, 35.32785, 3.763218402862548828, 4, 10000, 'Apprentice Mirveda - Unexpected Results'),
+(15402, 0, 1, 15656, 8753.199, -7125.975, 35.319862, 3.847229719161987304, 4, 10000, 'Apprentice Mirveda - Unexpected Results'),
+(15402, 0, 1, 15656, 8755.38, -7131.5215, 35.309574, 3.688055276870727539, 4, 10000, 'Apprentice Mirveda - Unexpected Results');
 
 UPDATE `creature` SET `spawntimesecs` = 30 WHERE `id1` = 15402;
