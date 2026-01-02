@@ -1396,20 +1396,19 @@ INSERT INTO `reference_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `
 -- SELECT 
 --     T.LootId, 
 --     
---     -- ITEM ID INCREMENTER
---     -- n is 0, 1, 2... so we add 1 to make it 1, 2, 3...
+--     -- Incremental
 --     numbers.n + 1, 
 --     
 --     -- REFERENCE ID ([BASE_ID] + Level)
---     -- REPLACE [BASE_ID] BELOW with 1200100 or 1200000
+--     -- Replace [BASE_ID] below with 1200100 (Cloth) or 1200000 (No Cloth)
 --     [BASE_ID] + (GREATEST(68, T.MinLvl) + numbers.n),
 --     
---     -- CHANCE (0 = Equal distribution)
+--     -- Chance
 --     0, 
 --     
 --     0, 1, 5, 1, 1, 
 --     
---     -- CLEAN COMMENT
+--     -- Comment
 --     CONCAT(T.CreatureName, ' - World Loot Level ', (GREATEST(68, T.MinLvl) + numbers.n))
 -- FROM 
 --     (
@@ -1420,7 +1419,7 @@ INSERT INTO `reference_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `
 --             MAX(`maxlevel`) AS MaxLvl
 --         FROM `creature_template`
 --         WHERE 
---             -- PASTE YOUR SAVED LIST HERE
+--             -- Paste Entries Here
 --             `entry` IN ( ... )
 --             
 --             AND `exp` = 2 
