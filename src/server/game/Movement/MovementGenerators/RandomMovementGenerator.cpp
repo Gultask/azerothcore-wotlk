@@ -67,8 +67,8 @@ void RandomMovementGenerator<Creature>::_setRandomLocation(Creature* creature)
 
         init.SetWalk(walk);
         init.Launch();
-        if (creature->GetFormation() && creature->GetFormation()->GetLeader() == creature)
-            creature->GetFormation()->LeaderMoveTo(_currDestPosition.GetPositionX(), _currDestPosition.GetPositionY(), _currDestPosition.GetPositionZ(), 0);
+        if (!_temporary && creature->GetFormation() && creature->GetFormation()->GetLeader() == creature)
+            creature->GetFormation()->LeaderMoveTo(_currDestPosition.GetPositionX(), _currDestPosition.GetPositionY(), _currDestPosition.GetPositionZ(), walk ? 0 : 1);
         return;
     }
 
@@ -218,14 +218,14 @@ void RandomMovementGenerator<Creature>::_setRandomLocation(Creature* creature)
     bool walk = true;
     switch (creature->GetMovementTemplate().GetRandom())
     {
-    case CreatureRandomMovementType::CanRun:
-        walk = creature->IsWalking();
-        break;
-    case CreatureRandomMovementType::AlwaysRun:
-        walk = false;
-        break;
-    default:
-        break;
+        case CreatureRandomMovementType::CanRun:
+            walk = creature->IsWalking();
+            break;
+        case CreatureRandomMovementType::AlwaysRun:
+            walk = false;
+            break;
+        default:
+            break;
     }
 
     Movement::MoveSplineInit init(creature);
@@ -239,12 +239,13 @@ void RandomMovementGenerator<Creature>::_setRandomLocation(Creature* creature)
         _moveCount = 0;
         _nextMoveTime.Reset(urand(4000, 8000));
     }
+
     if (sWorld->getBoolConfig(CONFIG_DONT_CACHE_RANDOM_MOVEMENT_PATHS))
         _preComputedPaths.erase(pathIdx);
 
-    //Call for creature group update
-    if (creature->GetFormation() && creature->GetFormation()->GetLeader() == creature)
-        creature->GetFormation()->LeaderMoveTo(finalPoint.x, finalPoint.y, finalPoint.z, 0);
+    // Call for creature group update if not a temporary random movement
+    if (!_temporary && creature->GetFormation() && creature->GetFormation()->GetLeader() == creature)
+        creature->GetFormation()->LeaderMoveTo(finalPoint.x, finalPoint.y, finalPoint.z, walk ? 0 : 1);
 }
 
 template<>
@@ -259,10 +260,12 @@ void RandomMovementGenerator<Creature>::DoInitialize(Creature* creature)
     _nextMoveTime.Reset(creature->GetSpawnId() && creature->GetWanderDistance() == _wanderDistance ? urand(1, 5000) : 0);
     _wanderDistance = std::max((creature->GetWanderDistance() == _wanderDistance && creature->GetInstanceId() == 0) ? (creature->CanFly() ? MIN_WANDER_DISTANCE_AIR : MIN_WANDER_DISTANCE_GROUND) : 0.0f, _wanderDistance);
 
-    if (G3D::fuzzyEq(_initialPosition.GetExactDist2d(0.0f, 0.0f), 0.0f))
+    if (_destinationPoints.empty())
     {
-        _initialPosition.Relocate(creature);
-        _destinationPoints.clear();
+        // If no center was provided, use creature's current position
+        if (G3D::fuzzyEq(_initialPosition.GetExactDist2d(0.0f, 0.0f), 0.0f))
+            _initialPosition.Relocate(creature);
+
         for (uint8 i = 0; i < RANDOM_POINTS_NUMBER; ++i)
         {
             float angle = (M_PI * 2.0f / (float)RANDOM_POINTS_NUMBER) * i;
@@ -289,6 +292,13 @@ void RandomMovementGenerator<Creature>::DoFinalize(Creature* creature)
 template<>
 bool RandomMovementGenerator<Creature>::DoUpdate(Creature* creature, const uint32 diff)
 {
+    if (_temporary)
+    {
+        _temporaryTimer.Update(diff);
+        if (_temporaryTimer.Passed())
+            return false;
+    }
+
     if (creature->HasUnitState(UNIT_STATE_NOT_MOVE) || creature->IsMovementPreventedByCasting())
     {
         _nextMoveTime.Reset(0);  // Expire the timer

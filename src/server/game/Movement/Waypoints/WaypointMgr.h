@@ -29,7 +29,9 @@ enum WaypointMoveType
     WAYPOINT_MOVE_TYPE_WALK,
     WAYPOINT_MOVE_TYPE_RUN,
     WAYPOINT_MOVE_TYPE_LAND,
-    WAYPOINT_MOVE_TYPE_TAKEOFF,
+    WAYPOINT_MOVE_TYPE_HOVER,
+    WAYPOINT_MOVE_TYPE_FLY,
+    WAYPOINT_MOVE_TYPE_RANDOM,
 
     WAYPOINT_MOVE_TYPE_MAX
 };
@@ -43,6 +45,7 @@ struct WaypointData
     uint32 event_id = 0;
     uint32 move_type = 0;
     uint8 event_chance = 0;
+    float random_radius = 0.0f; // Wander radius for random move type (from action column)
 };
 
 typedef std::map<uint32, WaypointData> WaypointPath;

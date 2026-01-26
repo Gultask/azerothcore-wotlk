@@ -80,6 +80,29 @@ void WaypointMovementGenerator<Creature>::DoReset(Creature* creature)
         return;
     }
     creature->AddUnitState(UNIT_STATE_ROAMING | UNIT_STATE_ROAMING_MOVE);
+
+    // Check if current waypoint has random movement - if so, re-trigger it
+    if (i_path && !i_path->empty() && m_isArrivalDone)
+    {
+        auto currentNodeItr = i_path->find(i_currentNode);
+        if (currentNodeItr != i_path->end())
+        {
+            WaypointData const& node = currentNodeItr->second;
+            if (node.move_type == WAYPOINT_MOVE_TYPE_RANDOM)
+            {
+                // Re-trigger random movement at this waypoint
+                uint32 duration = node.delay;
+                creature->GetMotionMaster()->MoveRandomTemporary(node.random_radius, duration);
+
+                if (creature->GetFormation() && creature->GetFormation()->GetLeader() == creature)
+                {
+                    creature->GetFormation()->LeaderStartRandomMovement(node.x, node.y, node.z, node.random_radius, duration);
+                }
+                return;
+            }
+        }
+    }
+
     StartMoveNow(creature);
 }
 
@@ -94,23 +117,40 @@ void WaypointMovementGenerator<Creature>::OnArrived(Creature* creature)
     m_isArrivalDone = true;
 
     auto currentNodeItr = i_path->find(i_currentNode);
+    WaypointData const& node = currentNodeItr->second;
 
-    if (currentNodeItr->second.event_id && urand(0, 99) < currentNodeItr->second.event_chance)
+    // Handle random movement at waypoint
+    if (node.move_type == WAYPOINT_MOVE_TYPE_RANDOM)
+    {
+        uint32 duration = node.delay;
+        creature->GetMotionMaster()->MoveRandomTemporary(node.random_radius, duration);
+
+        // Notify formation members to start their own random movement
+        if (creature->GetFormation() && creature->GetFormation()->GetLeader() == creature)
+            creature->GetFormation()->LeaderStartRandomMovement(node.x, node.y, node.z, node.random_radius, duration);
+
+        // Inform script
+        MovementInform(creature);
+        creature->UpdateWaypointID(i_currentNode);
+        return;
+    }
+
+    if (node.event_id && urand(0, 99) < node.event_chance)
     {
         LOG_DEBUG("maps.script", "Creature movement start script {} at point {} for {}.",
-            currentNodeItr->second.event_id, i_currentNode, creature->GetGUID().ToString());
+            node.event_id, i_currentNode, creature->GetGUID().ToString());
         creature->ClearUnitState(UNIT_STATE_ROAMING_MOVE);
-        creature->GetMap()->ScriptsStart(sWaypointScripts, currentNodeItr->second.event_id, creature, nullptr);
+        creature->GetMap()->ScriptsStart(sWaypointScripts, node.event_id, creature, nullptr);
     }
 
     // Inform script
     MovementInform(creature);
     creature->UpdateWaypointID(i_currentNode);
 
-    if (currentNodeItr->second.delay)
+    if (node.delay)
     {
         creature->ClearUnitState(UNIT_STATE_ROAMING_MOVE);
-        Stop(currentNodeItr->second.delay);
+        Stop(node.delay);
     }
 }
 
@@ -124,6 +164,10 @@ bool WaypointMovementGenerator<Creature>::StartMove(Creature* creature)
         return false;
 
     if (Stopped())
+        return true;
+
+    // Don't start moving if a higher priority generator is active
+    if (creature->GetMotionMaster()->GetMotionSlot(MOTION_SLOT_ACTIVE))
         return true;
 
     bool transportPath = creature->HasUnitMovementFlag(MOVEMENTFLAG_ONTRANSPORT) && creature->GetTransGUID();
@@ -203,17 +247,21 @@ bool WaypointMovementGenerator<Creature>::StartMove(Creature* creature)
 
     switch (node.move_type)
     {
-        case WAYPOINT_MOVE_TYPE_LAND:
-            init.SetAnimation(AnimTier::Ground);
-            break;
-        case WAYPOINT_MOVE_TYPE_TAKEOFF:
-            init.SetAnimation(AnimTier::Hover);
+        case WAYPOINT_MOVE_TYPE_WALK:
+            init.SetWalk(true);
             break;
         case WAYPOINT_MOVE_TYPE_RUN:
             init.SetWalk(false);
             break;
-        case WAYPOINT_MOVE_TYPE_WALK:
-            init.SetWalk(true);
+        case WAYPOINT_MOVE_TYPE_LAND:
+            init.SetAnimation(AnimTier::Ground);
+            break;
+        case WAYPOINT_MOVE_TYPE_HOVER:
+            init.SetAnimation(AnimTier::Hover);
+            break;
+        case WAYPOINT_MOVE_TYPE_FLY:
+            init.SetWalk(false); // creatures use speed_run for flight
+            init.SetAnimation(AnimTier::Fly);
             break;
         default:
             break;

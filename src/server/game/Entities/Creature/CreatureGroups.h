@@ -109,6 +109,7 @@ public:
     void FormationReset(bool dismiss, bool initMotionMaster);
 
     void LeaderMoveTo(float x, float y, float z, uint32 move_type);
+    void LeaderStartRandomMovement(float x, float y, float z, float radius, uint32 duration);
     void MemberEngagingTarget(Creature* member, Unit* target);
     Unit* GetNewTargetForMember(Creature* member);
     void MemberEvaded(Creature* member);

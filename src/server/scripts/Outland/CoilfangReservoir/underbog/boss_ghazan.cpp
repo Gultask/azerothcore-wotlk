@@ -45,18 +45,12 @@ struct boss_ghazan : public BossAI
     void InitializeAI() override
     {
         _movedToPlatform = false;
-        _reachedPlatform = false;
+        me->GetMotionMaster()->MoveWaypoint((me->GetSpawnId() * 10), true);
         Reset();
     }
 
     void Reset() override
     {
-        _Reset();
-        if (!_reachedPlatform)
-        {
-            _movedToPlatform = false;
-        }
-
         ScheduleHealthCheckEvent(20, [&] {
             DoCastSelf(SPELL_ENRAGE);
         });
@@ -90,33 +84,6 @@ struct boss_ghazan : public BossAI
         }
     }
 
-    void MovementInform(uint32 type, uint32 pointId) override
-    {
-        if (!_movedToPlatform || type != WAYPOINT_MOTION_TYPE || pointId != 20)
-        {
-            return;
-        }
-
-        _reachedPlatform = true;
-        me->SetHomePosition(me->GetPosition());
-
-        me->m_Events.AddEventAtOffset([this]()
-        {
-            me->StopMoving();
-            me->GetMotionMaster()->MoveRandom(12.f);
-        }, 1ms);
-    }
-
-    void JustReachedHome() override
-    {
-        if (_reachedPlatform)
-        {
-            me->GetMotionMaster()->MoveRandom(12.f);
-        }
-
-        _JustReachedHome();
-    }
-
     void UpdateAI(uint32 diff) override
     {
         if (!UpdateVictim())
@@ -131,7 +98,6 @@ struct boss_ghazan : public BossAI
 
     private:
         bool _movedToPlatform;
-        bool _reachedPlatform;
 };
 
 class at_underbog_ghazan : public OnlyOnceAreaTriggerScript

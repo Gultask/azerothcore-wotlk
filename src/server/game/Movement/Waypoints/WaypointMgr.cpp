@@ -90,8 +90,25 @@ void WaypointMgr::Load()
         }
 
         data.delay = fields[7].Get<uint32>();
-        data.event_id = fields[8].Get<uint32>();
-        data.event_chance = fields[9].Get<int16>();
+
+        if (data.move_type == WAYPOINT_MOVE_TYPE_RANDOM)
+        {
+            // action column is deprecated, so use it to store random radius for Random Movement move_type for now
+            data.random_radius = static_cast<float>(fields[8].Get<uint32>());
+            data.event_id = 0;
+            data.event_chance = 0;
+            if (data.random_radius <= 0.1f)
+            {
+                LOG_ERROR("sql.sql", "Waypoint {} in waypoint_data has move_type Random but invalid radius (action column), defaulting to 5.0f", data.id);
+                data.random_radius = 5.0f;
+            }
+        }
+        else
+        {
+            data.event_id = fields[8].Get<uint32>();
+            data.event_chance = fields[9].Get<int16>();
+            data.random_radius = 0.0f;
+        }
 
         path.emplace(data.id, data);
         ++count;
@@ -162,8 +179,24 @@ void WaypointMgr::ReloadPath(uint32 id)
         }
 
         data.delay = fields[6].Get<uint32>();
-        data.event_id = fields[7].Get<uint32>();
-        data.event_chance = fields[8].Get<uint8>();
+
+        if (data.move_type == WAYPOINT_MOVE_TYPE_RANDOM)
+        {
+            data.random_radius = static_cast<float>(fields[7].Get<uint32>());
+            data.event_id = 0;
+            data.event_chance = 0;
+            if (data.random_radius <= 0.1f)
+            {
+                LOG_ERROR("sql.sql", "Waypoint {} in waypoint_data has move_type Random but invalid radius (action column), defaulting to 5.0f", data.id);
+                data.random_radius = 5.0f;
+            }
+        }
+        else
+        {
+            data.event_id = fields[7].Get<uint32>();
+            data.event_chance = fields[8].Get<uint8>();
+            data.random_radius = 0.0f;
+        }
 
         path.emplace(data.id, data);
     } while (result->NextRow());

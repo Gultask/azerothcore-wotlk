@@ -252,6 +252,24 @@ void MotionMaster::MoveRandom(float wanderDistance)
     }
 }
 
+void MotionMaster::MoveRandomTemporary(float wanderDistance, uint32 duration)
+{
+    if (_owner->HasUnitFlag(UNIT_FLAG_DISABLE_MOVE))
+        return;
+
+    if (_owner->IsCreature())
+        Mutate(new RandomMovementGenerator<Creature>(wanderDistance, duration), MOTION_SLOT_ACTIVE);
+}
+
+void MotionMaster::MoveRandomTemporary(float wanderDistance, uint32 duration, Position const& center)
+{
+    if (_owner->HasUnitFlag(UNIT_FLAG_DISABLE_MOVE))
+        return;
+
+    if (_owner->IsCreature())
+        Mutate(new RandomMovementGenerator<Creature>(wanderDistance, duration, &center), MOTION_SLOT_ACTIVE);
+}
+
 /**
  * @brief The unit will return this initial position (owner for pets and summoned creatures). Doesn't work with UNIT_FLAG_DISABLE_MOVE
  *

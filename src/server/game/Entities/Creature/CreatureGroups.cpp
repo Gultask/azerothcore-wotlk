@@ -20,6 +20,7 @@
 #include "CreatureAI.h"
 #include "Log.h"
 #include "MoveSplineInit.h"
+#include "MotionMaster.h"
 #include "ObjectMgr.h"
 #include "QueryResult.h"
 #include "Timer.h"
@@ -388,20 +389,7 @@ void CreatureGroup::LeaderMoveTo(float x, float y, float z, uint32 move_type)
         if (move_type < 2)
             member->UpdateGroundPositionZ(dx, dy, dz);
 
-        // pussywizard: setting the same movementflags is not enough, spline decides whether leader walks/runs, so spline param is now passed as "run" parameter to this function
         member->SetUnitMovementFlags(m_leader->GetUnitMovementFlags());
-        switch (move_type)
-        {
-        case WAYPOINT_MOVE_TYPE_WALK:
-            member->AddUnitMovementFlag(MOVEMENTFLAG_WALKING);
-            break;
-        case WAYPOINT_MOVE_TYPE_RUN:
-            member->RemoveUnitMovementFlag(MOVEMENTFLAG_WALKING);
-            break;
-        case WAYPOINT_MOVE_TYPE_LAND:
-            member->AddUnitMovementFlag(MOVEMENTFLAG_DISABLE_GRAVITY);
-            break;
-        }
 
         // xinef: if we move members to position without taking care of sizes, we should compare distance without sizes
         // xinef: change members speed basing on distance - if too far speed up, if too close slow down
@@ -414,6 +402,43 @@ void CreatureGroup::LeaderMoveTo(float x, float y, float z, uint32 move_type)
             member->GetMotionMaster()->MovePoint(0, dx, dy, dz);
             member->SetHomePosition(dx, dy, dz, pathAngle);
         }
+    }
+}
+
+void CreatureGroup::LeaderStartRandomMovement(float x, float y, float z, float radius, uint32 duration)
+{
+    if (!m_leader)
+        return;
+
+    float pathAngle = m_leader->GetOrientation();
+
+    // Start random movement for each member at their offset position
+    for (auto const& itr : m_members)
+    {
+        Creature* member = itr.first;
+        FormationInfo const& pFormationInfo = itr.second;
+
+        if (member == m_leader || !member->IsAlive() || member->GetVictim())
+            continue;
+
+        if (!pFormationInfo.HasGroupFlag(std::underlying_type_t<GroupAIFlags>(GroupAIFlags::GROUP_AI_FLAG_FOLLOW_LEADER)))
+            continue;
+
+        if (member->HasUnitState(UNIT_STATE_NOT_MOVE) || member->isPossessed() || member->HasUnitFlag(UNIT_FLAG_PLAYER_CONTROLLED))
+            continue;
+
+        // Calculate member's center point based on formation offset
+        float followAngle = pFormationInfo.follow_angle;
+        float followDist = pFormationInfo.follow_dist;
+
+        float memberCenterX = x + std::cos(followAngle + pathAngle) * followDist;
+        float memberCenterY = y + std::sin(followAngle + pathAngle) * followDist;
+        float memberCenterZ = z;
+
+        member->UpdateGroundPositionZ(memberCenterX, memberCenterY, memberCenterZ);
+
+        Position center(memberCenterX, memberCenterY, memberCenterZ);
+        member->GetMotionMaster()->MoveRandomTemporary(radius, duration, center);
     }
 }
 

@@ -32,9 +32,14 @@ template<class T>
 class RandomMovementGenerator : public MovementGeneratorMedium< T, RandomMovementGenerator<T> >
 {
 public:
-    RandomMovementGenerator(float wanderDistance = 0.0f) : _nextMoveTime(0), _moveCount(0), _wanderDistance(wanderDistance), _pathGenerator(nullptr), _currentPoint(RANDOM_POINTS_NUMBER)
+    RandomMovementGenerator(float wanderDistance = 0.0f, uint32 duration = 0, Position const* center = nullptr) :
+        _nextMoveTime(0), _moveCount(0), _wanderDistance(wanderDistance), _pathGenerator(nullptr),
+        _currentPoint(RANDOM_POINTS_NUMBER), _temporary(duration > 0), _temporaryTimer(duration)
     {
-        _initialPosition.Relocate(0.0f, 0.0f, 0.0f, 0.0f);
+        if (center)
+            _initialPosition.Relocate(*center);
+        else
+            _initialPosition.Relocate(0.0f, 0.0f, 0.0f, 0.0f);
         _destinationPoints.reserve(RANDOM_POINTS_NUMBER);
 
         for (uint8 i = 0; i < RANDOM_POINTS_NUMBER; ++i)
@@ -68,5 +73,7 @@ private:
     uint8 _currentPoint;
     std::map<uint16, Movement::PointsArray> _preComputedPaths;
     Position _initialPosition, _currDestPosition;
+    bool _temporary;
+    TimeTrackerSmall _temporaryTimer;
 };
 #endif
