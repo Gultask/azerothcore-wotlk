@@ -25,6 +25,7 @@ void AddSC_bf_commandscript();
 void AddSC_cast_commandscript();
 void AddSC_character_commandscript();
 void AddSC_cheat_commandscript();
+void AddSC_cotools_commandscript();
 void AddSC_debug_commandscript();
 void AddSC_deserter_commandscript();
 void AddSC_disable_commandscript();
@@ -78,6 +79,7 @@ void AddCommandsScripts()
     AddSC_cast_commandscript();
     AddSC_character_commandscript();
     AddSC_cheat_commandscript();
+    AddSC_cotools_commandscript();
     AddSC_debug_commandscript();
     AddSC_deserter_commandscript();
     AddSC_disable_commandscript();
