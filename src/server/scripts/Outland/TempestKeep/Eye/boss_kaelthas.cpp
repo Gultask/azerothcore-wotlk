@@ -856,10 +856,10 @@ struct npc_capernian : public advisor_baseAI
             }
         }, 2500ms);
         ScheduleTimedEvent(7s, 10s, [&]{
-            DoCastRandomTarget(SPELL_CONFLAGRATION, 0, 30.0f);
+            DoCastRandomTarget(SPELL_CONFLAGRATION, 0, 30.0f, true, false, true, -SPELL_ARCANE_BURST);
         }, 18500ms, 20500ms);
         ScheduleTimedEvent(3s, [&]{
-            DoCastRandomTarget(SPELL_ARCANE_BURST, 0, 8.0f);
+            DoCastRandomTarget(SPELL_ARCANE_BURST, 0, 8.0f, true, false, true, -SPELL_CONFLAGRATION);
         }, 6s);
     }
 };
