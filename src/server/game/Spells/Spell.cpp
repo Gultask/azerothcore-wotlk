@@ -1310,7 +1310,8 @@ void Spell::SelectImplicitAreaTargets(SpellEffIndex effIndex, SpellImplicitTarge
             return;
     }
 
-    // Xinef: the distance should be increased by caster size, it is neglected in latter calculations
+    // AoE target selection uses BoundingRadius (model size) instead of CombatReach
+    // to match retail behavior - see WorldObjectSpellAreaTargetCheck::operator()
     std::list<WorldObject*> targets;
     float radius = m_spellInfo->Effects[effIndex].CalcRadius(m_caster) * m_spellValue->RadiusMod;
     SearchAreaTargets(targets, radius, center, referer, targetType.GetObjectType(), targetType.GetCheckType(), m_spellInfo->Effects[effIndex].ImplicitTargetConditions);
@@ -7029,81 +7030,155 @@ SpellCastResult Spell::CheckRange(bool strict)
     if (!strict && m_casttime == 0)
         return SPELL_CAST_OK;
 
-    uint32 range_type = 0;
+    Unit* target = m_targets.GetUnitTarget();
+    float minRange = 0.0f;
+    float maxRange = 0.0f;
+    float rangeMod = 0.0f;
 
-    if (m_spellInfo->RangeEntry)
+    if (strict && IsNextMeleeSwingSpell())
     {
-        // check needed by 68766 51693 - both spells are cast on enemies and have 0 max range
-        // these are triggered by other spells - possibly we should omit range check in that case?
+        maxRange = 100.0f;
+    }
+    else if (m_spellInfo->RangeEntry)
+    {
+        // check needed by 68766 51693 - both spells are cast on
+        // enemies and have 0 max range; these are triggered by
+        // other spells
         if (m_spellInfo->RangeEntry->ID == 1)
             return SPELL_CAST_OK;
 
-        range_type = m_spellInfo->RangeEntry->Flags;
-    }
+        uint32 rangeType = m_spellInfo->RangeEntry->Flags;
 
-    Unit* target = m_targets.GetUnitTarget();
-    float max_range = m_caster->GetSpellMaxRangeForTarget(target, m_spellInfo);
-    float min_range = m_caster->GetSpellMinRangeForTarget(target, m_spellInfo);
+        // xinef: hack for npc shooters
+        minRange = m_caster->GetSpellMinRangeForTarget(
+            target, m_spellInfo);
+        if (minRange && GetCaster()->IsCreature()
+            && !GetCaster()->GetOwnerGUID().IsPlayer()
+            && minRange <= 6.0f)
+            rangeType = SPELL_RANGE_RANGED;
 
-    // xinef: hack for npc shooters
-    if (min_range && GetCaster()->IsCreature() && !GetCaster()->GetOwnerGUID().IsPlayer() && min_range <= 6.0f)
-        range_type = SPELL_RANGE_RANGED;
-
-    if (Player* modOwner = m_caster->GetSpellModOwner())
-        modOwner->ApplySpellMod(m_spellInfo->Id, SPELLMOD_RANGE, max_range, this);
-
-    // xinef: dont check max_range to strictly after cast
-    if (range_type != SPELL_RANGE_MELEE && !strict)
-        max_range += std::min(3.0f, max_range * 0.1f); // 10% but no more than 3yd
-
-    if (target)
-    {
-        if (target != m_caster)
+        if (rangeType & SPELL_RANGE_MELEE)
         {
-            // Xinef: Spells with 5yd range can hit target 9yd away?
-            if (range_type == SPELL_RANGE_MELEE)
+            // Melee: caster + target combat reach + 4/3
+            rangeMod = m_caster->GetCombatReach() + 4.0f / 3.0f;
+            if (target)
+                rangeMod += target->GetCombatReach();
+            else
+                rangeMod += m_caster->GetCombatReach();
+
+            rangeMod = std::max(rangeMod, NOMINAL_MELEE_RANGE);
+        }
+        else
+        {
+            float meleeRange = 0.0f;
+            if (rangeType & SPELL_RANGE_RANGED)
             {
-                float real_max_range = max_range;
-                if (!m_caster->IsCreature() && m_caster->HasLeewayMovement() && target->HasLeewayMovement())
-                    real_max_range -= MIN_MELEE_REACH; // Because of lag, we can not check too strictly here (is only used if both caster and target are moving)
+                // Calculate melee range for min-distance check
+                meleeRange = m_caster->GetCombatReach()
+                    + 4.0f / 3.0f;
+                if (target)
+                    meleeRange += target->GetCombatReach();
                 else
-                    real_max_range -= 2 * MIN_MELEE_REACH;
+                    meleeRange += m_caster->GetCombatReach();
 
-                if (!m_caster->IsWithinMeleeRange(target, std::max(real_max_range, 0.0f)))
-                    return SPELL_FAILED_OUT_OF_RANGE;
+                meleeRange = std::max(meleeRange,
+                    NOMINAL_MELEE_RANGE);
             }
-            else if (!m_caster->IsWithinCombatRange(target, max_range))
-                return SPELL_FAILED_OUT_OF_RANGE; //0x5A;
 
-            if (m_spellInfo->DmgClass == SPELL_DAMAGE_CLASS_RANGED && range_type == SPELL_RANGE_RANGED)
+            minRange = minRange + meleeRange;
+            maxRange = m_caster->GetSpellMaxRangeForTarget(
+                target, m_spellInfo);
+
+            if (target || m_targets.GetCorpseTarget())
             {
-                if (m_caster->IsWithinMeleeRange(target))
-                    return SPELL_FAILED_TOO_CLOSE;
-            }
+                // Non-melee targeted: caster + target combat reach
+                rangeMod = m_caster->GetCombatReach();
+                if (target)
+                    rangeMod += target->GetCombatReach();
 
-            if (m_caster->IsPlayer() && (m_spellInfo->FacingCasterFlags & SPELL_FACING_FLAG_INFRONT) && !m_caster->HasInArc(static_cast<float>(M_PI), target) && !m_caster->IsWithinBoundaryRadius(target))
-                return SPELL_FAILED_UNIT_NOT_INFRONT;
+                if (minRange > 0.0f
+                    && !(rangeType & SPELL_RANGE_RANGED))
+                    minRange += rangeMod;
+            }
         }
 
-        // Xinef: check min range for self casts
-        if (min_range && range_type != SPELL_RANGE_RANGED && m_caster->IsWithinCombatRange(target, min_range)) // skip this check if min_range = 0
-            return SPELL_FAILED_TOO_CLOSE;
+        // Movement leeway for melee or player targets
+        if (target && m_caster->isMoving()
+            && target->isMoving()
+            && !m_caster->IsWalking()
+            && !target->IsWalking()
+            && (rangeType & SPELL_RANGE_MELEE
+                || target->IsPlayer()))
+            rangeMod += 5.0f / 3.0f;
+    }
+
+    // Apply ranged weapon modifier
+    if (m_spellInfo->HasAttribute(SPELL_ATTR0_USES_RANGED_SLOT)
+        && m_caster->IsPlayer())
+    {
+        if (Item* ranged = m_caster->ToPlayer()
+                ->GetWeaponForAttack(RANGED_ATTACK, true))
+            maxRange *= ranged->GetTemplate()->RangedModRange
+                * 0.01f;
+    }
+
+    if (Player* modOwner = m_caster->GetSpellModOwner())
+        modOwner->ApplySpellMod(m_spellInfo->Id,
+            SPELLMOD_RANGE, maxRange, this);
+
+    // xinef: dont check max_range too strictly after cast
+    if (!(m_spellInfo->RangeEntry
+            && (m_spellInfo->RangeEntry->Flags & SPELL_RANGE_MELEE))
+        && !strict)
+        maxRange += std::min(3.0f, maxRange * 0.1f);
+
+    maxRange += rangeMod;
+
+    if (target && target != m_caster)
+    {
+        if (!m_caster->IsInDist(target, maxRange))
+            return !(_triggeredCastFlags
+                    & TRIGGERED_DONT_REPORT_CAST_ERROR)
+                ? SPELL_FAILED_OUT_OF_RANGE
+                : SPELL_FAILED_DONT_REPORT;
+
+        if (minRange > 0.0f
+            && m_caster->IsInDist(target, minRange))
+            return !(_triggeredCastFlags
+                    & TRIGGERED_DONT_REPORT_CAST_ERROR)
+                ? SPELL_FAILED_TOO_CLOSE
+                : SPELL_FAILED_DONT_REPORT;
+
+        if (m_caster->IsPlayer()
+            && (m_spellInfo->FacingCasterFlags
+                & SPELL_FACING_FLAG_INFRONT)
+            && !m_caster->HasInArc(static_cast<float>(M_PI),
+                target)
+            && !m_caster->IsWithinBoundaryRadius(target))
+            return SPELL_FAILED_UNIT_NOT_INFRONT;
     }
 
     if (GameObject* goTarget = m_targets.GetGOTarget())
     {
-        if (!goTarget->IsAtInteractDistance(m_caster->ToPlayer(), m_spellInfo))
-        {
+        if (!goTarget->IsAtInteractDistance(
+                m_caster->ToPlayer(), m_spellInfo))
             return SPELL_FAILED_OUT_OF_RANGE;
-        }
     }
 
     if (m_targets.HasDst() && !m_targets.HasTraj())
     {
-        if (!m_caster->IsWithinDist3d(m_targets.GetDstPos(), max_range))
-            return SPELL_FAILED_OUT_OF_RANGE;
-        if (min_range && m_caster->IsWithinDist3d(m_targets.GetDstPos(), min_range))
-            return SPELL_FAILED_TOO_CLOSE;
+        if (!m_caster->IsInDist(m_targets.GetDstPos(), maxRange))
+            return !(_triggeredCastFlags
+                    & TRIGGERED_DONT_REPORT_CAST_ERROR)
+                ? SPELL_FAILED_OUT_OF_RANGE
+                : SPELL_FAILED_DONT_REPORT;
+        if (minRange > 0.0f
+            && m_caster->IsInDist(m_targets.GetDstPos(),
+                minRange))
+            return !(_triggeredCastFlags
+                    & TRIGGERED_DONT_REPORT_CAST_ERROR)
+                ? SPELL_FAILED_TOO_CLOSE
+                : SPELL_FAILED_DONT_REPORT;
     }
 
     return SPELL_CAST_OK;
@@ -9057,10 +9132,18 @@ namespace Acore
             if (!target->ToGameObject()->IsInRange(_position->GetPositionX(), _position->GetPositionY(), _position->GetPositionZ(), _range))
                 return false;
         }
-        else if (!target->IsWithinDist3d(_position, _range))
-            return false;
-        else if (target->IsCreature() && target->ToCreature()->IsAvoidingAOE()) // pussywizard
-            return false;
+        else
+        {
+            // Use BoundingRadius (model size) instead of CombatReach
+            // for AoE target selection to match retail behavior
+            float targetSize = target->IsUnit()
+                ? target->ToUnit()->GetBoundaryRadius()
+                : target->GetObjectSize();
+            if (!target->IsInDist(_position, _range + targetSize))
+                return false;
+            if (target->IsCreature() && target->ToCreature()->IsAvoidingAOE())
+                return false;
+        }
         return WorldObjectSpellTargetCheck::operator ()(target);
     }
 
